@@ -33,10 +33,10 @@ elsif yes? 'Ok then, how about Devise? [y/n]'
   devise = true
 end
 
+# create/use gemset
 require 'rvm'
 run "rvm gemset create #{app_name}"
 RVM.gemset_use! app_name # `run "rvm gemset use #{app_name}"` doesn't work -- rvm still uses the terminal's current gemset
-
 create_file '.rvmrc', "rvm gemset use #{app_name}"
 run 'rvm rvmrc trust'
 
@@ -219,13 +219,6 @@ insert_into_file 'app/views/layouts/application.html.erb', "\n  <%= render 'shar
 # config/application.rb settings
 insert_into_file 'config/application.rb', "\n    config.assets.initialize_on_precompile = false\n", :before => /^  end$/
 insert_into_file 'config/application.rb', "    config.autoload_paths += %W(\#{config.root}/lib)", :after => /config.autoload_paths.*\n/
-insert_into_file 'config/application.rb', :before => /^  end$/ do
-  <<-LESS
-
-    config.less.paths << File.join(Rails.root, 'lib','less') if config.respond_to? :less
-    config.less.paths << File.join(Rails.root, 'vendor','less') if config.respond_to? :less
-  LESS
-end unless active_admin
 
 # config/schedule.rb for whenever cron tab
 create_file 'config/schedule.rb', <<-CRONTAB

@@ -84,7 +84,6 @@ gems_to_remove = %w(
   sqlite3
   jquery-rails
 )
-gems_to_remove.push('sass-rails') unless active_admin
 gsub_file 'Gemfile', /^\s*gem '(#{Regexp.union(gems_to_remove)})'.*$/, ''
 
 # remove empty lines from Gemfile
@@ -104,13 +103,6 @@ end
 insert_into_file 'Gemfile', :after => /gem 'lograge'\n/ do
   "gem 'whenever', :require => false\n"
 end
-
-insert_into_file 'Gemfile', :after => "group :assets do\n" do
-  %w(
-    less-rails
-    therubyracer
-  ).map { |gem_name| "  gem '#{gem_name}'" }.join("\n") << "\n"
-end unless active_admin
 
 gem_group :development do
   gem 'foreman'

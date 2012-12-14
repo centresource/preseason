@@ -100,6 +100,11 @@ insert_into_file 'Gemfile', :after => /gem 'rails'.*\n/ do
   ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
 end
 
+# add custom case, with require
+insert_into_file 'Gemfile', :after => /gem 'lograge'\n/ do
+  "gem 'whenever', :require => false\n"
+end
+
 insert_into_file 'Gemfile', :after => "group :assets do\n" do
   %w(
     less-rails
@@ -188,11 +193,22 @@ insert_into_file 'config/application.rb', "\n    config.assets.initialize_on_pre
 insert_into_file 'config/application.rb', "    config.autoload_paths += %W(\#{config.root}/lib)", :after => /config.autoload_paths.*\n/
 insert_into_file 'config/application.rb', :before => /^  end$/ do
   <<-LESS
-    
+
     config.less.paths << File.join(Rails.root, 'lib','less') if config.respond_to? :less
     config.less.paths << File.join(Rails.root, 'vendor','less') if config.respond_to? :less
   LESS
 end unless active_admin
+
+# config/schedule.rb for whenever cron tab
+create_file 'config/schedule.rb', <<-CRONTAB
+# Use this file to easily define all of your cron jobs.
+
+every :sunday, :at => '4am' do
+  rake "log:clear"
+end
+
+# Learn more: http://github.com/javan/whenever
+CRONTAB
 
 # rspec
 generate 'rspec:install'

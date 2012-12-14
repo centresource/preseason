@@ -119,6 +119,8 @@ gem_group :development do
   gem 'guard-spork'
   gem 'rb-fsevent', :require => false
   gem 'growl'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem_group :development, :test do

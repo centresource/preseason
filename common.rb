@@ -2,14 +2,20 @@
 # integration spec setup?
 # password reset/recover in controller for Authlogic
 # Authlogic user factory
-# ask for which database gem to use (default to pg)
 # add chosen.js for active admin (possibly for everything?)
 # add active admin precompile asset list to production.rb
 # setup README based on gems?
 # setup github remote?
 # ask/setup heroku?
 
-username = ask "What is your postgres database username?"
+db_adapters = {'postgres' => 'postgresql', 'mysql' => 'mysql2', 'sqlite' => 'sqlite3'}
+db_gems = {'postgres' => 'pg', 'mysql' => 'mysql2', 'sqlite' => 'sqlite3'}
+db_choice = ask("What db will you be using?", :limited_to => ['postgres', 'mysql', 'sqlite'])
+
+unless db_choice == 'sqlite'
+  username = ask "What is your #{db_choice} database username?"
+  password = ask "What is your #{db_choice} database password? (leave blank for none)"
+end
 
 if yes? 'Will you be using Factory Girl? [y/n]'
   factory_girl = true
@@ -34,34 +40,60 @@ RVM.gemset_use! app_name # `run "rvm gemset use #{app_name}"` doesn't work -- rv
 create_file '.rvmrc', "rvm gemset use #{app_name}"
 run 'rvm rvmrc trust'
 
+# create db files
 remove_file 'config/database.yml'
-create_file 'config/database.yml', <<-DB
-development:
-  adapter: postgresql
-  database: #{app_name}_development
-  username:
-  password:
 
-test:
-  adapter: postgresql
-  database: #{app_name}_test
-  username:
-  password:
+if db_choice == 'sqlite'
+  create_file 'config/database.yml', <<-DB
+  development:
+    adapter: sqlite3
+    database: db/development.sqlite3
+    pool: 5
+    timeout: 5000
 
-production:
-  adapter: postgresql
-  database: #{app_name}_production
-  username:
-  password:
-DB
-copy_file "#{destination_root}/config/database.yml", 'config/database.yml.dist'
-username = (`whoami`).chomp if username.blank?
-gsub_file 'config/database.yml', 'username:', "username: #{username}"
+  test:
+    adapter: sqlite3
+    database: db/test.sqlite3
+    pool: 5
+    timeout: 5000
+
+  production:
+    adapter: sqlite3
+    database: db/production.sqlite3
+    pool: 5
+    timeout: 5000
+  DB
+else
+  create_file 'config/database.yml', <<-DB
+  development:
+    adapter: #{db_adapters[db_choice]}
+    database: #{app_name}_development
+    username:
+    password:
+
+  test:
+    adapter: #{db_adapters[db_choice]}
+    database: #{app_name}_test
+    username:
+    password:
+
+  production:
+    adapter: #{db_adapters[db_choice]}
+    database: #{app_name}_production
+    username:
+    password:
+  DB
+
+  copy_file "#{destination_root}/config/database.yml", 'config/database.yml.dist'
+  username = (`whoami`).chomp if username.blank?
+  gsub_file 'config/database.yml', 'username:', "username: #{username}"
+  gsub_file 'config/database.yml', 'password:', "password: #{password}"
+  append_to_file '.gitignore', 'config/database.yml'
+end
 
 append_to_file '.gitignore' do
   %w(
     .rvmrc
-    config/database.yml
     coverage
     .DS_Store
     *.swp
@@ -80,19 +112,21 @@ end
 gsub_file 'Gemfile', /^\s*#\s*.*$/, ''
 
 # remove unwanted gems (replacing jquery-rails later to move it to top of Gemfile)
-gems_to_remove = %w(
-  sqlite3
-  jquery-rails
-)
+gems_to_remove = %w(jquery-rails)
+gems_to_remove.push('sqlite3') unless db_choice == 'sqlite'
 gsub_file 'Gemfile', /^\s*gem '(#{Regexp.union(gems_to_remove)})'.*$/, ''
 
 # remove empty lines from Gemfile
 gsub_file 'Gemfile', /^\n/, ''
 
-# add environment-wide gems to top of Gemfile
+# add db-specific gem
 insert_into_file 'Gemfile', :after => /gem 'rails'.*\n/ do
+  "gem '#{db_gems[db_choice]}'\n"
+end unless db_choice == 'sqlite'
+
+# add environment-wide gems to top of Gemfile
+insert_into_file 'Gemfile', :after => /gem '#{db_gems[db_choice]}'.*\n/ do
   %w(
-    pg
     whiskey_disk
     jquery-rails
     lograge

@@ -96,6 +96,7 @@ insert_into_file 'Gemfile', :after => /gem 'rails'.*\n/ do
     pg
     whiskey_disk
     jquery-rails
+    lograge
   ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
 end
 
@@ -159,6 +160,8 @@ elsif devise
   end
 end
 
+# enable lograge for production
+insert_into_file 'config/environments/production.rb', "\n  config.lograge.enabled = true\n", :before => /^end$/
 
 run 'bundle install'
 run 'rake db:create'
@@ -227,7 +230,7 @@ if authlogic
   end
   AUTHLOGIC
   end
-  
+
   insert_into_file 'config/routes.rb', :before => 'end' do
   <<-ROUTES
 
@@ -330,7 +333,7 @@ Spork.prefork do
       end
     end
   end
-  
+
 end
 
 Spork.each_run do

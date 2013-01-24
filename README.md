@@ -2,9 +2,9 @@
 ## a centresource interactive agency open internal project
 
 ### Why
-We start new Ruby on Rails prjects frequently. In doing so, we end up
+We start new Ruby on Rails projects frequently. In doing so, we end up
 repeating many of the same steps. As Rubyists, we are always looking for
-ways to DRY things up. This project is intended to serve as starting
+ways to DRY things up. This project is intended to serve as a starting
 place for new Rails applications. Perhaps most importantly, it is
 **NOT** supposed to cover everything that every Rails
 app will ever need, but to be a good starting place.
@@ -66,7 +66,7 @@ out a 'develop' branch
 
 #### Centresource Rails Templates offers use of the following technologies:
 
-+  Either postgressql, mysql2, or sqlite3
++  Either postgresql, mysql2, or sqlite3
 +  Factory Girl or Object Daddy (for our friend, Jeremy)
 +  Authlogic
 +  Activeadmin or plain Devise
@@ -83,7 +83,7 @@ out a 'develop' branch
 +  binding\_of\_collar
 +  pry
 +  awesome_print
-+  quiet_assests
++  quiet_assets
 +  heroku
 +  rspec
 +  database_cleaner
@@ -99,5 +99,7 @@ out a 'develop' branch
 Centresource Rails Templates is a project by the development team at the
 [Centresource Interactive Agency](http://www.centresource.com/
 "Centresource.com") in Nashville, TN. The main push for this
-project is from Cade Truitt, Travis Roberts, and Jeremy Holland. This
-readme was created by Max Beizer. All rights reserved.
+project is from [Cade Truitt](https://github.com/cade), [Travis
+Roberts](https://github.com/travisr), and [Jeremy
+Holland](https://github.com/awebneck). This README was created by [Max
+Beizer](https://github.com/maxbeizer). All rights reserved.

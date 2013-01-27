@@ -2,6 +2,8 @@ module Rails
   module Generators
     module Actions
 
+      attr_reader :template_options
+
       def initialize_template
         @template_options = {}
       end
@@ -36,6 +38,15 @@ module Rails
 
       def recipe(name)
         File.join File.dirname(__FILE__), 'recipes', "#{name}.rb"
+      end
+
+      def load_template(name, group)
+        path = File.expand_path name, template_path(group)
+        File.read path
+      end
+
+      def template_path(name)
+        File.join(File.dirname(__FILE__), 'templates', name)
       end
 
     end

@@ -31,6 +31,9 @@ Guides](http://guides.rubyonrails.org/getting_started.html "Rails Guides").
 
 6. Make magic happen and dreams come true.
 
+####Note About ERB Templates
+When adding a 'template' and you want the included erb to be parsed at runtime and not when this script runs, you must begin your erb tag with `<&&` instead of `<%`.  See `templates/flash/app/views/shared/_flash.html.erb` for an example.
+
 ### What
 #### Centresource Rails Templates does the following:
 
@@ -100,6 +103,6 @@ Centresource Rails Templates is a project by the development team at the
 [Centresource Interactive Agency](http://www.centresource.com/
 "Centresource.com") in Nashville, TN. The main push for this
 project is from [Cade Truitt](https://github.com/cade), [Travis
-Roberts](https://github.com/travisr), and [Jeremy
-Holland](https://github.com/awebneck). This README was created by [Max
+Roberts](https://github.com/travisr), [Jeremy
+Holland](https://github.com/awebneck) and [Adam Scott] (https://github.com/ascot21). This README was created by [Max
 Beizer](https://github.com/maxbeizer). All rights reserved.

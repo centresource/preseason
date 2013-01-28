@@ -2,6 +2,8 @@ module Rails
   module Generators
     module Actions
 
+      require 'erb'
+
       attr_reader :template_options
 
       def initialize_template
@@ -42,7 +44,9 @@ module Rails
 
       def load_template(name, group)
         path = File.expand_path name, template_path(group)
-        File.read path
+        # File.read path
+        content = ERB.new(File.read path)
+        content.result(binding)
       end
 
       def template_path(name)

@@ -1,0 +1,17 @@
+development:
+    adapter: <%= template_options[:db_adapters][template_options[:db_choice]] %>
+    database: <%= app_name %>_development
+    username:
+    password:
+
+test:
+    adapter: <%= template_options[:db_adapters][template_options[:db_choice]] %>
+    database: <%= app_name %>_test
+    username:
+    password:
+
+production:
+    adapter: <%= template_options[:db_adapters][template_options[:db_choice]] %>
+    database: <%= app_name %>_production
+    username:
+    password:

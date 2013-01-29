@@ -12,7 +12,7 @@ if @template_options[:authlogic]
     load_template 'config/routes.rb', 'routes'
   end
 
-  create_file 'app/controllers/user_session_controller.rb',     load_template 'app/controllers/user_session_controller.rb', 'authlogic'
+  create_file 'app/controllers/user_session_controller.rb', load_template('app/controllers/user_session_controller.rb', 'authlogic')
 
 elsif @template_options[:devise]
   generate 'devise:install' unless @template_options[:active_admin]

@@ -106,3 +106,11 @@ project is from [Cade Truitt](https://github.com/cade), [Travis
 Roberts](https://github.com/travisr), [Jeremy
 Holland](https://github.com/awebneck) and [Adam Scott] (https://github.com/ascot21). This README was created by [Max
 Beizer](https://github.com/maxbeizer). All rights reserved.
+
+##ToDos
+* integration spec setup?
+* password reset/recover in controller for Authlogic
+* Authlogic user factory
+* add chosen.js for active admin (possibly for everything?)
+* add active admin precompile asset list to production.rb
+* ask/setup heroku?

@@ -108,9 +108,9 @@ Holland](https://github.com/awebneck) and [Adam Scott] (https://github.com/ascot
 Beizer](https://github.com/maxbeizer). All rights reserved.
 
 ##ToDos
-* integration spec setup?
-* password reset/recover in controller for Authlogic
-* Authlogic user factory
-* add chosen.js for active admin (possibly for everything?)
-* add active admin precompile asset list to production.rb
-* ask/setup heroku?
+- [ ] integration spec setup?
+- [ ] password reset/recover in controller for Authlogic
+- [ ] Authlogic user factory
+- [ ] add chosen.js for active admin (possibly for everything?)
+- [ ] add active admin precompile asset list to production.rb
+- [ ] ask/setup heroku?

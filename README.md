@@ -55,6 +55,7 @@ a placeholder
 + sets config.autoload_paths += %W(\#{config.root}/lib)
 + sets up a template for using whenever for cronjobs
 + installs rspec
++ installs and sets up bourbon and neat
 + creates a template for your whiskey_disk deploy in config/deploy.yml
 + creates Procfile for foreman
 + starts guard
@@ -95,6 +96,8 @@ out a 'develop' branch
 +  launchy
 +  fuubar
 +  simplecov
++  bourbon
++  neat
 
 
 ### Who

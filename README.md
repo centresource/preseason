@@ -65,6 +65,7 @@ logo.
 + migrates the db and recreates the test db from the DEV's schema
 + initializes a git repository, makes an "initial commit", and checks
 out a 'develop' branch
++ setup Heroku
 
 
 
@@ -98,6 +99,7 @@ out a 'develop' branch
 +  simplecov
 +  bourbon
 +  neat
++  heroku
 
 
 ### Who
@@ -116,4 +118,3 @@ Beizer](https://github.com/maxbeizer). All rights reserved.
 * Authlogic user factory
 * add chosen.js for active admin (possibly for everything?)
 * add active admin precompile asset list to production.rb
-* ask/setup heroku?

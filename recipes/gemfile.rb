@@ -22,6 +22,7 @@ insert_into_file 'Gemfile', :after => /gem '#{@template_options[:db_gems][@templ
     lograge
     bourbon
     neat
+    chosen-rails
   ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
 end
 

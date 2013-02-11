@@ -12,6 +12,6 @@ initialize_template
 load_options
 
 #loop through the recipes and apply each one
-required_recipes = %w(database gitignore gemfile bourbon_neat production bundle routes flash_messages application schedule rspec whiskey_disk foreman active_admin authentication guard spork_rspec git)
+required_recipes = %w(database gitignore gemfile bourbon_neat chosen production bundle routes flash_messages application schedule rspec whiskey_disk foreman active_admin authentication guard spork_rspec git heroku)
 required_recipes.each {|required_recipe| apply recipe(required_recipe)}
 

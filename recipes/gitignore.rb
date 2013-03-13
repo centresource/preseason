@@ -1,5 +1,5 @@
 append_to_file '.gitignore' do
-  %w(
+  "\n" << %w(
     .rvmrc
     coverage
     .DS_Store

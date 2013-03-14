@@ -2,25 +2,18 @@
 ## a centresource interactive agency open internal project
 
 ### Why
-We start new Ruby on Rails projects frequently. In doing so, we end up
-repeating many of the same steps. As Rubyists, we are always looking for
-ways to DRY things up. This project is intended to serve as a starting
-place for new Rails applications. Perhaps most importantly, it is
-**NOT** supposed to cover everything that every Rails
-app will ever need, but to be a good starting place.
+We start new Ruby on Rails projects frequently. In doing so, we end up repeating many of the same steps. As Rubyists, we are always looking for ways to DRY things up. This project is intended to serve as a starting place for new Rails applications. Perhaps most importantly, it is **NOT** supposed to cover everything that every Rails app will ever need, but to be a good starting place.
 
 
 ### How
-N.B. This project assumes you have a development environment setup that
-is capable of installing Rails projects. If not, start with the [Rails
-Guides](http://guides.rubyonrails.org/getting_started.html "Rails Guides").
+N.B. This project assumes you have a development environment setup that is capable of installing Rails projects. If not, start with the [Rails Guides](http://guides.rubyonrails.org/getting_started.html "Rails Guides"). It also assumes that you are using SSH if you plan to make your project a Github repo.
 
 1. Clone the csrailstemplates repo to the directory where your new app
    will begin:
         ```git clone git@github.com:centresource/csrailstemplates.git```
 
 2. Install a new Rails applicaiton with the following flag as shown:
-        ```rails new YourAppName -m csrailstemplates/common.rb```
+        ```rails new [YourAppName] -m csrailstemplates/common.rb```
 
 3. Follow the prompts to choose your database, etc.
 
@@ -104,17 +97,20 @@ out a 'develop' branch
 
 ### Who
 
-Centresource Rails Templates is a project by the development team at the
-[Centresource Interactive Agency](http://www.centresource.com/
-"Centresource.com") in Nashville, TN. The main push for this
-project is from [Cade Truitt](https://github.com/cade), [Travis
-Roberts](https://github.com/travisr), [Jeremy
-Holland](https://github.com/awebneck) and [Adam Scott] (https://github.com/ascot21). This README was created by [Max
-Beizer](https://github.com/maxbeizer). All rights reserved.
+Centresource Rails Templates is a project by the development team at the [Centresource Interactive Agency](http://www.centresource.com/"Centresource.com") in Nashville, TN. The main push for this project is from [Cade Truitt](https://github.com/cade), [Travis Roberts](https://github.com/travisr), [Jeremy Holland](https://github.com/awebneck), [Adam Scott](https://github.com/ascot21) and [Max Beizer](https://github.com/maxbeizer). All rights reserved.
 
-##ToDos
+### ToDos
 * integration spec setup?
 * password reset/recover in controller for Authlogic
 * Authlogic user factory
 * add chosen.js for active admin (possibly for everything?)
 * add active admin precompile asset list to production.rb
+
+## Contributing
+1. fork the repo
+
+2. exhibit your brilliance
+
+3. push to your fork
+
+4. submit a pull request

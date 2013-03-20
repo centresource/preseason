@@ -29,6 +29,6 @@ if yes? 'Do you want to create a Github repo? [y/n]'
     run "git remote add origin git@github.com:#{github_username}/#{repo_name}.git"
   end
   run 'git push -u origin master'
-  run 'git checkout -b develop'
-  run 'git push -u origin develop'
+  run 'git checkout -b staging'
+  run 'git push -u origin staging'
 end

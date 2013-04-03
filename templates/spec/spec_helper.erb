@@ -6,7 +6,7 @@ if(ENV["SIMPLECOV"])
   SimpleCov.start 'rails' do
     add_filter "/spec/"
   end
-  puts "Running coverage tool\\n"
+  puts "Running coverage tool\n"
 end
 
 Spork.prefork do
@@ -20,7 +20,6 @@ Spork.prefork do
   Spork.trap_method(Rails::Application::RoutesReloader, :reload!)"
   <% end %>
   <% if @template_options[:authlogic] %>
-
   require 'authlogic/test_case'
 
   include Authlogic::TestCase

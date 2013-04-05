@@ -11,14 +11,13 @@ end
 
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
+  <% if @template_options[:devise] %>
+  require 'rails/application'
+  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
+  <% end %>
 
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
-  <% if @template_options[:devise] %>
-  require 'rails/application'
-
-  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
-  <% end %>
   <% if @template_options[:authlogic] %>
 
   require 'authlogic/test_case'

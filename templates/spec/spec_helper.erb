@@ -17,7 +17,7 @@ Spork.prefork do
   <% if @template_options[:devise] %>
   require 'rails/application'
 
-  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)"
+  Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
   <% end %>
   <% if @template_options[:authlogic] %>
 
@@ -58,5 +58,5 @@ Spork.prefork do
 end
 
 Spork.each_run do
- <%%= #{"FactoryGirl.reload" if @template_options[:factory_girl]} %>
+ <%= "FactoryGirl.reload" if @template_options[:factory_girl] %>
 end

@@ -12,7 +12,9 @@ N.B. This project assumes you have a development environment setup that is capab
    will begin:
         ```git clone git@github.com:centresource/csrailstemplates.git```
 
-2. Install a new Rails applicaiton with the following flag as shown:
+2. Make sure your db is running (postgres/mysql/etc)
+
+3. Install a new Rails applicaiton with the following flag as shown:
         ```rails new [YourAppName] -m csrailstemplates/common.rb```
 
 3. Follow the prompts to choose your database, etc.

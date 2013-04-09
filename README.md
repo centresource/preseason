@@ -97,7 +97,7 @@ out a 'develop' branch
 
 ### Who
 
-Centresource Rails Templates is a project by the development team at the [Centresource Interactive Agency](http://www.centresource.com/"Centresource.com") in Nashville, TN. The main push for this project is from [Cade Truitt](https://github.com/cade), [Travis Roberts](https://github.com/travisr), [Jeremy Holland](https://github.com/awebneck), [Adam Scott](https://github.com/ascot21) and [Max Beizer](https://github.com/maxbeizer). All rights reserved.
+Centresource Rails Templates is a project by the development team at the [Centresource Interactive Agency](http://www.centresource.com) in Nashville, TN. The main push for this project is from [Cade Truitt](https://github.com/cade), [Travis Roberts](https://github.com/travisr), [Jeremy Holland](https://github.com/awebneck), [Adam Scott](https://github.com/ascot21) and [Max Beizer](https://github.com/maxbeizer). All rights reserved.
 
 ### ToDos
 * integration spec setup?

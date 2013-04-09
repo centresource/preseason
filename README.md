@@ -114,3 +114,9 @@ Centresource Rails Templates is a project by the development team at the [Centre
 3. push to your fork
 
 4. submit a pull request
+
+
+## Troubleshooting
+* If you don't have QT libraries installed, you may get this error when installing Capybara
+   * `Command 'qmake -spec macx-g++' not available`
+      * Just run `brew install qt`. [Learn more](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)

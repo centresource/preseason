@@ -39,7 +39,7 @@ Spork.prefork do
     end
 
     config.before(:each) do
-      if example.metadata[:use_truncation]
+      if example.metadata[:use_truncation] || example.metadata[:js]
         DatabaseCleaner.strategy = :truncation
       else
         DatabaseCleaner.start

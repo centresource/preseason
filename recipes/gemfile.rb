@@ -31,6 +31,10 @@ insert_into_file 'Gemfile', :after => /gem 'lograge'\n/ do
   "gem 'whenever', :require => false\n"
 end
 
+gem_group :production do
+  gem 'heroku_rails_deflate'
+end
+
 gem_group :development do
   gem 'foreman'
   gem 'guard-bundler'

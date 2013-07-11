@@ -7,7 +7,7 @@ class UserSessionController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
 
     if @user_session.save
-      redirect_to root_url
+      redirect_back_or_default root_url
     else
       flash.now[:error] = 'Username or password are incorrect.'
       render :action => :new

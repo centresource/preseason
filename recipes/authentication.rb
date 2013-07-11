@@ -12,6 +12,10 @@ if @template_options[:authlogic]
     load_template 'config/routes.rb', 'routes'
   end
 
+  insert_into_file 'app/controller/application_controller.rb', :after => 'protect_from_forgery' do
+    load_template 'app/controller/application_controller.rb', 'authlogic'
+  end
+
   create_file 'app/controllers/user_session_controller.rb', load_template('app/controllers/user_session_controller.rb', 'authlogic')
 
 elsif @template_options[:devise]

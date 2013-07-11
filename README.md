@@ -67,34 +67,28 @@ out a 'develop' branch
 #### Preseason offers use of the following technologies:
 
 +  Either postgresql, mysql2, or sqlite3
-+  Factory Girl or Object Daddy (for our friend, Jeremy)
-+  Authlogic
-+  Activeadmin or plain Devise
-+  RVM
-+  whiskey_disk (for embarasssingly fast deployments)
-+  lograge
-+  whenever (:require => false)
-+  foreman
-+  guard
-+  spork
-+  rb-fsevent (:require => false)
-+  growl
-+  better_errors
-+  binding\_of\_collar
-+  pry
-+  awesome_print
-+  quiet_assets
-+  heroku
-+  rspec
-+  database_cleaner
-+  shoulda-matchers
-+  capybara-webkit
-+  launchy
-+  fuubar
-+  simplecov
-+  bourbon
-+  neat
-+  heroku
++  [factory_girl](https://github.com/thoughtbot/factory_girl) or [object_daddy](https://github.com/flogic/object_daddy) (for our friend, [Jeremy](https://github.com/awebneck))
++  [authlogic](https://github.com/binarylogic/authlogic), [devise](https://github.com/plataformatec/devise), or [activeadmin](http://www.activeadmin.info/) (with devise)
++  [rvm](https://rvm.io/)
++  [whiskey_disk](https://github.com/flogic/whiskey_disk) (for embarasssingly fast deployments)
++  [lograge](https://github.com/roidrage/lograge)
++  [whenever](https://github.com/javan/whenever)
++  [foreman](https://github.com/ddollar/foreman)
++  [guard](https://github.com/guard/guard)
++  [spork](https://github.com/sporkrb/spork)
++  [better_errors](https://github.com/charliesome/better_errors)
++  [pry](http://pryrepl.org/)
++  [awesome_print](https://github.com/michaeldv/awesome_print)
++  [quiet_assets](https://github.com/evrone/quiet_assets)
++  [rspec](http://rspec.info/)
++  [database_cleaner](https://github.com/bmabey/database_cleaner)
++  [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
++  [capybara-webkit](https://github.com/thoughtbot/capybara-webkit)
++  [launchy](https://github.com/copiousfreetime/launchy)
++  [fuubar](https://github.com/jeffkreeftmeijer/fuubar)
++  [simplecov](https://github.com/colszowka/simplecov)
++  [bourbon](http://bourbon.io/)
++  [neat](http://neat.bourbon.io/)
 
 
 ### Who

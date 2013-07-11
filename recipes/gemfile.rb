@@ -19,16 +19,18 @@ insert_into_file 'Gemfile', :after => /gem '#{@template_options[:db_gems][@templ
   %w(
     whiskey_disk
     jquery-rails
-    lograge
     bourbon
     neat
     chosen-rails
   ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
 end
 
-# add custom case, with require
-insert_into_file 'Gemfile', :after => /gem 'lograge'\n/ do
-  "gem 'whenever', :require => false\n"
+if no? "Will this app be deployed to Heroku?"
+  # add custom case, with require
+  insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
+    "gem 'lograge'\n
+     gem 'whenever', :require => false\n"
+  end
 end
 
 gem_group :development do

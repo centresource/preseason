@@ -21,6 +21,11 @@ module Rails
           @template_options[:password] = ask "What is your #{@template_options[:db_choice]} database password? (leave blank for none)"
         end
 
+        # by default, assume they are hosting postgres apps on Heroku
+        if @template_options[:db_choice] == 'postgres'
+          @template_options[:heroku] = true
+        end
+
         if yes? 'Will you be using Factory Girl? [y/n]'
           @template_options[:factory_girl] = true
         elsif yes? 'Ok then, how about Object Daddy? [y/n]'

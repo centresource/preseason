@@ -1,4 +1,4 @@
-if @template_options[:db_choice] == 'postgres'
+if @template_options[:heroku]
   if yes? 'Do you want to setup Heroku? [y/n]'
     #precompile assets
     run "rake assets:precompile"

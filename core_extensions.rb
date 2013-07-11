@@ -16,7 +16,8 @@ module Rails
         @template_options[:db_choice] = ask("What db will you be using?", :limited_to => ['postgres', 'mysql', 'sqlite'])
 
         unless @template_options[:db_choice] == 'sqlite'
-          @template_options[:username] = ask "What is your #{@template_options[:db_choice]} database username?"
+          @template_options[:username] = ask "What is your #{@template_options[:db_choice]} database username? (leave blank for `whoami`)"
+          @template_options[:username] = (`whoami`).chomp if @template_options[:username].blank?
           @template_options[:password] = ask "What is your #{@template_options[:db_choice]} database password? (leave blank for none)"
         end
 

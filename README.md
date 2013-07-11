@@ -12,7 +12,9 @@ N.B. This project assumes you have a development environment setup that is capab
    will begin:
         ```git clone git@github.com:centresource/csrailstemplates.git```
 
-2. Install a new Rails applicaiton with the following flag as shown:
+2. Make sure your db is running (postgres/mysql/etc)
+
+3. Install a new Rails applicaiton with the following flag as shown:
         ```rails new [YourAppName] -m csrailstemplates/common.rb```
 
 3. Follow the prompts to choose your database, etc.
@@ -97,7 +99,7 @@ out a 'develop' branch
 
 ### Who
 
-Centresource Rails Templates is a project by the development team at the [Centresource Interactive Agency](http://www.centresource.com/"Centresource.com") in Nashville, TN. The main push for this project is from [Cade Truitt](https://github.com/cade), [Travis Roberts](https://github.com/travisr), [Jeremy Holland](https://github.com/awebneck), [Adam Scott](https://github.com/ascot21) and [Max Beizer](https://github.com/maxbeizer). All rights reserved.
+Centresource Rails Templates is a project by the development team at the [Centresource Interactive Agency](http://www.centresource.com) in Nashville, TN. The main push for this project is from [Cade Truitt](https://github.com/cade), [Travis Roberts](https://github.com/travisr), [Jeremy Holland](https://github.com/awebneck), [Adam Scott](https://github.com/ascot21) and [Max Beizer](https://github.com/maxbeizer). All rights reserved.
 
 ### ToDos
 * integration spec setup?
@@ -114,3 +116,9 @@ Centresource Rails Templates is a project by the development team at the [Centre
 3. push to your fork
 
 4. submit a pull request
+
+
+## Troubleshooting
+* If you don't have QT libraries installed, you may get this error when installing Capybara
+   * `Command 'qmake -spec macx-g++' not available`
+      * Just run `brew install qt`. [Learn more](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)

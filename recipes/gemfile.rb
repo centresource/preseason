@@ -33,6 +33,10 @@ if no? "Will this app be deployed to Heroku?"
   end
 end
 
+gem_group :production do
+  gem 'heroku_rails_deflate'
+end
+
 gem_group :development do
   gem 'foreman'
   gem 'guard-bundler'

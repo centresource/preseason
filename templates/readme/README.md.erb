@@ -4,8 +4,7 @@
 ```Shell
 rvm gemset create <%= app_name %>
 rvm gemset use <%= app_name %>
-rvm --rvmrc --create @<%= app_name %>
-rvm rvmrc trust .
+rvm --rvmrc --create 2.0.0@<%= app_name %> --ruby-version
 bundle install
 cp config/database.yml.dist config/database.yml
 vi config/database.yml # put in your database configation details

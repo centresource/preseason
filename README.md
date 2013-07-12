@@ -39,7 +39,7 @@ When adding a 'template' and you want the included erb to be parsed at runtime a
 choice
 + adds the database.yml to .gitignore and creates a database.yml.dist as
 a placeholder
-+ adds .rvmrc, swp files, public/assets, s3 files, etc to .gitignore
++ adds .ruby-version, .ruby-gemset, swp files, public/assets, s3 files, etc to .gitignore
 + cleans up the Gemfile (removes comments and empty lines)
 + enables lograge for production
 + installs gems via bundler

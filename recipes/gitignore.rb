@@ -1,16 +1,17 @@
 append_to_file '.gitignore' do
   "\n" << %w(
-    .rvmrc
-    coverage
     .DS_Store
-    *.swp
-    erd.pdf
+    *.pid
     .powrc
-    public/assets
+    .ruby-gemset
+    .ruby-version
+    *.swp
     config/aws_s3.yml
     config/sunspot.yml
-    solr/data
-    *.pid
+    coverage
     dump.rdb
+    erd.pdf
+    public/assets
+    solr/data
   ).join("\n")
 end

@@ -1,4 +1,5 @@
 
+
   private
 
   def current_user_session

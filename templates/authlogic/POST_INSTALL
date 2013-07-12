@@ -1,0 +1,10 @@
+
+Authlogic Post-Install
+======================
+
+Authlogic has been installed and configured. Next steps:
+
+- Update the login form with your preferred markup (app/views/user_session/new.html.erb)
+- Update the default "from" address in the site mailer for password reset emails (app/mailers/site_mailer.rb)
+- Update the password reset email to your needs (app/views/site_mailer/password_reset_instructions.html.erb)
+- Update the reset password pages with your preferred markup (app/views/user_session/{acquire_password,forgot_password}.html.erb)

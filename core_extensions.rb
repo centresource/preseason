@@ -42,6 +42,7 @@ module Rails
           @template_options[:devise] = true
         end
 
+        @template_options[:readme] = []
       end
 
       def recipe(name)

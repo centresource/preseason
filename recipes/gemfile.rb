@@ -80,6 +80,7 @@ if @template_options[:active_admin]
   insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
     "gem 'activeadmin'\n"
   end
+  gsub_file 'Gemfile', /^\s*(gem 'jquery-rails').*$/, "\\1, '2.3.0'"
   insert_into_file 'config/environments/development.rb', "\n  config.action_mailer.default_url_options = { :host => 'localhost:3000' }\n", :before => /^end$/
 end
 

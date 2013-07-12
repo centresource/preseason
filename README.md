@@ -101,6 +101,8 @@ Preseason is a project by the development team at the [Centresource Interactive 
 * Authlogic user factory
 * add chosen.js for active admin (possibly for everything?)
 * add active admin precompile asset list to production.rb
+* add logic to setup activeadmin for authlogic and allow choice between
+  devise and authlogic rather than y/n for authlogic
 
 ## Contributing
 1. fork the repo

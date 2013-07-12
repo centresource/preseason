@@ -2,7 +2,7 @@
 # create master and develop remote branches
 run 'git init'
 remove_file 'README.rdoc'
-create_file 'README.md', 'This Rails app was created with help from [Centresource\'s](http://www.centresource.com/ "Centresource") Trail Mix Project'
+create_file 'README.md', load_template('README.md.erb', 'readme')
 run 'git add .'
 run 'git commit -m "Initial commit"'
 

@@ -25,7 +25,7 @@ insert_into_file 'Gemfile', :after => /gem '#{@template_options[:db_gems][@templ
   ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
 end
 
-if @template_options[:heroku] == true && no?("Will this app be deployed to Heroku?")
+if @template_options[:heroku] == true && no?("Will this app be deployed to Heroku? [y/n]")
   @template_options[:heroku] = false
   # add custom case, with require
   insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
@@ -80,6 +80,7 @@ if @template_options[:active_admin]
   insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
     "gem 'activeadmin'\n"
   end
+  gsub_file 'Gemfile', /^\s*(gem 'jquery-rails').*$/, "\\1, '2.3.0'"
   insert_into_file 'config/environments/development.rb', "\n  config.action_mailer.default_url_options = { :host => 'localhost:3000' }\n", :before => /^end$/
 end
 

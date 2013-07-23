@@ -3,9 +3,9 @@ require File.join(File.dirname(__FILE__), 'core_extensions.rb')
 # create/use gemset
 require 'rvm'
 run "rvm gemset create #{app_name}"
-RVM.gemset_use! app_name # `run "rvm gemset use #{app_name}"` doesn't work -- rvm still uses the terminal's current gemset
-create_file '.ruby-version', '2.0.0'
-create_file '.ruby-gemset', "#{app_name}"
+RVM.gemset_use! "#{app_name}" # `run "rvm gemset use #{app_name}"` doesn't work -- rvm still uses the terminal's current gemset
+create_file '.ruby-version', "#{RUBY_VERSION}\n"
+create_file '.ruby-gemset', "#{app_name}\n"
 
 initialize_template
 

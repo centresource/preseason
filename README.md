@@ -97,7 +97,6 @@ Preseason is a project by the development team at the [Centresource Interactive 
 
 ### ToDos
 * integration spec setup?
-* Authlogic user factory
 * add active admin precompile asset list to production.rb
 * add logic to setup activeadmin for authlogic and allow choice between
   devise and authlogic rather than y/n for authlogic

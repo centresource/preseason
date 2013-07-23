@@ -6,25 +6,25 @@ create_file 'README.md', load_template('README.md.erb', 'readme')
 run 'git add .'
 run 'git commit -m "Initial commit"'
 
-if yes? 'Do you want to create a Github repo? [y/n]'
-  repo_name = ask('What do you want to name the Github repo?')
-  github_username = ask('What is your Github username?')
-  if yes? 'Is this a public repo? [y/n]'
-    private_repo_answer = true
+if yes?("#{ask_color}Do you want to create a Github repo? #{option_color}[y/n]#{no_color}")
+  repo_name = ask("#{ask_color}What do you want to name the Github repo?#{no_color}")
+  github_username = ask("#{ask_color}What is your Github username?#{no_color}")
+  if yes?("#{ask_color}Is this a public repo? #{option_color}[y/n]#{no_color}")
+    public_repo_answer = true
   else
-    private_repo_answer = false
+    public_repo_answer = false
   end
-  if yes? 'Does this repo belong to an organization? [y/n]'
-    org_name = ask('What is the org\'s name?')
+  if yes?("#{ask_color}Does this repo belong to an organization? #{option_color}[y/n]#{no_color}")
+    org_name = ask("#{ask_color}What is the org's name?#{no_color}")
     run <<-RUBY
     curl -u '#{github_username}' https://api.github.com/orgs/#{org_name}/repos -d '{"name":"#{repo_name}",
-                                                                        "public":"#{private_repo_answer}"}' > /dev/null
+                                                                        "public":"#{public_repo_answer}"}' > /dev/null
     RUBY
     run "git remote add origin git@github.com:#{org_name}/#{repo_name}.git"
   else
     run <<-RUBY
     curl -u '#{github_username}' https://api.github.com/user/repos -d '{"name":"#{repo_name}",
-                                                                        "public":"#{private_repo_answer}"}' > /dev/null
+                                                                        "public":"#{public_repo_answer}"}' > /dev/null
     RUBY
     run "git remote add origin git@github.com:#{github_username}/#{repo_name}.git"
   end

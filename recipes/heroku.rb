@@ -1,16 +1,13 @@
 if @template_options[:heroku]
-  if yes? 'Do you want to setup Heroku? [y/n]'
-    #precompile assets
-    run "rake assets:precompile"
-
+  if yes?("#{ask_color}Do you want to setup Heroku? #{option_color}[y/n]#{no_color}")
     #login and create the app on heroku
-    run "heroku login"
-    run "heroku create #{app_name}"
+    run "heroku auth:login"
+    run "heroku apps:create #{app_name}"
 
     #setup pgbackups
     run "heroku addons:add pgbackups"
 
     #push to heroku
-    run "git push heroku master"
+    run "git push heroku master -u"
   end
 end

@@ -1,6 +1,6 @@
 # authlogic/devise
 if @template_options[:authlogic]
-  # models
+  # model - if you edit this, mirror your changes in the user_factory
   generate 'model user first_name:string last_name:string email:string crypted_password:string password_salt:string persistence_token:string perishable_token:string'
 
   insert_into_file 'app/models/user.rb', :before => 'end' do
@@ -8,6 +8,10 @@ if @template_options[:authlogic]
   end
 
   create_file 'app/models/user_session.rb', load_template('app/models/user_session.rb', 'authlogic')
+
+  # factory
+  remove_file 'spec/factories/users.rb'
+  create_file 'spec/factories/users.rb', load_template('spec/factories/users.rb', 'authlogic')
 
   # routes
   insert_into_file 'config/routes.rb', :before => 'end' do

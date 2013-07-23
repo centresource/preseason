@@ -4,7 +4,7 @@ insert_into_file 'config/routes.rb', :before => /^end$/ do
   load_template 'config/routes.rb', 'custom_error_pages'
 end
 
-generate 'controller errors'
+generate 'controller errors --no-helper --no-assets'
 
 create_file 'app/views/errors/application_error.html.erb', load_template('app/views/errors/application_error.html.erb', 'custom_error_pages')
 create_file 'app/views/errors/not_found.html.erb', load_template('app/views/errors/not_found.html.erb', 'custom_error_pages')

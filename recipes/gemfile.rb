@@ -25,8 +25,7 @@ insert_into_file 'Gemfile', :after => /gem '#{@template_options[:db_gems][@templ
   ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
 end
 
-if @template_options[:heroku] == true && no?("Will this app be deployed to Heroku? [y/n]")
-  @template_options[:heroku] = false
+if @template_options[:heroku] == false
   # add custom case, with require
   insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
     "gem 'lograge'\n

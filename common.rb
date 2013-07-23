@@ -13,7 +13,7 @@ load_options
 
 #loop through the recipes and apply each one
 required_recipes = %w(database gitignore gemfile bourbon_neat chosen production bundle routes flash_messages application schedule rspec whiskey_disk foreman active_admin authentication custom_error_pages guard spork_rspec git heroku)
-required_recipes.each {|required_recipe| apply recipe(required_recipe)}
+required_recipes.each { |required_recipe| apply recipe(required_recipe) }
 
 # semi-hack to make sure our post install messages are output last
 run_bundle
@@ -21,5 +21,7 @@ def run_bundle ; end
 
 # spit out post install messages
 @template_options[:readme].each do |msg|
+  say "#{option_color}"
   readme File.join(File.dirname(__FILE__), msg)
+  say "#{no_color}"
 end

@@ -17,7 +17,6 @@ required_recipes = %w(
   chosen
   production
   bundle
-  routes
   flash_messages
   application
   schedule
@@ -30,6 +29,7 @@ required_recipes = %w(
   guard
   spork_rspec
   playbook
+  routes
   git
   heroku
 )

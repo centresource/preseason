@@ -11,8 +11,8 @@ empty_directory '/tmp/playbook'
 # => "burbon" directory
 # => "neat" directory
 # => versioned "jquery-X.X.X.min.js" file
-# => "app.coffee" file
-exclude = [/^\./, /^(?:bourbon|neat|jquery.+?min\.js|app\.coffee)$/]
+# => "application.coffee" file
+exclude = [/^\./, /^(?:bourbon|neat|jquery.+?min\.js|application\.coffee)$/]
 
 Dir.glob('/tmp/playbook/*/{app,vendor}/assets/').each do |dir_path|
   Find.find(dir_path) do |path|

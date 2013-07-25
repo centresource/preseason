@@ -1,43 +1,43 @@
 # authlogic/devise
 if @template_options[:authlogic]
+  recipe_root = "#{template_path}/authlogic"
+  
   # model - if you edit this, mirror your changes in the user_factory
   generate 'model user first_name:string last_name:string email:string crypted_password:string password_salt:string persistence_token:string perishable_token:string'
-
-  insert_into_file 'app/models/user.rb', :before => 'end' do
-    load_template 'app/models/user.rb', 'authlogic'
+  
+  with 'app/models/user.rb' do |path|
+    insert_into_file path, File.read("#{recipe_root}/#{path}"), :before => 'end'
   end
-
-  create_file 'app/models/user_session.rb', load_template('app/models/user_session.rb', 'authlogic')
+  mirror_file 'app/models/user_session.rb', recipe_root
 
   # factory
-  remove_file 'spec/factories/users.rb'
-  create_file 'spec/factories/users.rb', load_template('spec/factories/users.rb', 'authlogic')
+  mirror_file 'spec/factories/users.rb', recipe_root
 
   # routes
-  insert_into_file 'config/routes.rb', :before => 'end' do
-    load_template 'config/routes.rb', 'routes'
+  with 'config/routes.rb' do |path|
+    insert_into_file path, File.read("#{recipe_root}/#{path}"), :before => 'end'
   end
 
   # controllers
-  create_file 'app/controllers/user_session_controller.rb', load_template('app/controllers/user_session_controller.rb', 'authlogic')
+  mirror_file 'app/controllers/user_session_controller.rb', recipe_root
 
-  insert_into_file 'app/controllers/application_controller.rb', :after => 'protect_from_forgery' do
-    load_template 'app/controllers/application_controller.rb', 'authlogic'
+  with 'app/controllers/application_controller.rb' do |path|
+    insert_into_file path, File.read("#{recipe_root}/#{path}"), :after => 'protect_from_forgery'
   end
 
   # views
-  create_file 'app/views/user_session/new.html.erb', load_template('app/views/user_session/new.html.erb', 'authlogic')
-  create_file 'app/views/user_session/forgot_password.html.erb', load_template('app/views/user_session/forgot_password.html.erb', 'authlogic')
-  create_file 'app/views/user_session/acquire_password.html.erb', load_template('app/views/user_session/acquire_password.html.erb', 'authlogic')
+  %w(new forgot_password acquire_password).each do |file_name|
+    mirror_file "app/views/user_session/#{file_name}.html.erb", recipe_root
+  end
 
   # mailer (for password reset)
   generate 'mailer SiteMailer'
 
-  insert_into_file 'app/mailers/site_mailer.rb', :before => 'end' do
-    load_template 'app/mailers/site_mailer.rb', 'authlogic'
+  with 'app/mailers/site_mailer.rb' do |path|
+    insert_into_file path, File.read("#{recipe_root}/#{path}"), :before => 'end'
   end
 
-  create_file 'app/views/site_mailer/password_reset_instructions.html.erb', load_template('app/views/site_mailer/password_reset_instructions.html.erb', 'authlogic')
+  mirror_file 'app/views/site_mailer/password_reset_instructions.html.erb', recipe_root
 
   @template_options[:readme] << 'templates/authlogic/POST_INSTALL'
 

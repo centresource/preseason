@@ -1,14 +1,15 @@
 # create db files
-remove_file 'config/database.yml'
-
 if @template_options[:db_choice] == 'sqlite'
-  create_file 'config/database.yml', load_template('config/database.yml','sqlite')
+  recipe_root = "#{template_path}/sqlite"
+  with 'config/database.yml' do |path|
+    mirror_file path, recipe_root
+    copy_file "#{recipe_root}/#{path}", "#{path}.dist"
+  end
 else
-  create_file 'config/database.yml', load_template('config/database.yml.erb','no-sqlite')
-
-  copy_file "#{destination_root}/config/database.yml", 'config/database.yml.dist'
-  username = (`whoami`).chomp if @template_options[:username].blank?
-  gsub_file 'config/database.yml', 'username:', "username: #{@template_options[:username]}"
-  gsub_file 'config/database.yml', 'password:', "password: #{@template_options[:password]}"
-  append_to_file '.gitignore', 'config/database.yml'
+  with 'config/database.yml' do |path|
+    remove_file path
+    create_file "#{path}.dist", parse_template("no-sqlite/#{path}.dist.erb")
+    create_file path, parse_template("no-sqlite/#{path}.erb")
+  end
 end
+append_to_file '.gitignore', 'config/database.yml'

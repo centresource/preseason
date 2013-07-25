@@ -1,2 +1,2 @@
 # whiskey disk
-create_file 'config/deploy.yml', load_template('config/deploy.yml','whiskey_disk')
+mirror_file 'config/deploy.yml', "#{template_path}/whiskey_disk"

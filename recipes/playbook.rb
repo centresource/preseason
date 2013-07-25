@@ -1,8 +1,11 @@
 require 'find'
 
 remove_file 'app/assets/stylesheets/application.css'
+remove_file 'public/index.html'
+remove_file 'app/assets/images/rails.png'
+
 get 'https://api.github.com/repos/centresource/playbook/tarball', '/tmp/playbook.tar.gz'
-remove_dir '/tmp/playbook'
+remove_dir '/tmp/playbook' if Dir.exist? '/tmp/playbook'
 empty_directory '/tmp/playbook'
 `tar -zxvf /tmp/playbook.tar.gz -C /tmp/playbook 2> /dev/null`
 
@@ -32,5 +35,4 @@ remove_dir '/tmp/playbook'
 remove_file '/tmp/playbook.tar.gz'
 
 append_to_file 'app/assets/javascripts/application.js', '//= require plugins'
-remove_file 'app/views/layouts/application.html.erb'
-copy_file "#{templ_path}/app/views/layouts/application.html.erb", 'app/views/layouts/application.html.erb'
+mirror_file 'app/views/layouts/application.html.erb', "#{template_path}/default"

@@ -27,7 +27,7 @@ N.B. This project assumes you have a development environment setup that is capab
 6. Make magic happen and dreams come true.
 
 ####Note About ERB Templates
-When adding a 'template' and you want the included erb to be parsed at runtime and not when this script runs, you must begin your erb tag with `<&&` instead of `<%`.  See `templates/flash/app/views/shared/_flash.html.erb` for an example.
+If you need to write a template that executes ERB in the context of the running script and also outputs ERB for the purposes of the generated application code, be sure to escape your application-bound ERB as `<%%>`
 
 ### What
 #### Preseason does the following:

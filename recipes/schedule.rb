@@ -1,2 +1,2 @@
 # config/schedule.rb for whenever cron tab
-create_file 'config/schedule.rb', load_template('config/schedule.rb','crontab')
+mirror_file 'config/schedule.rb', "#{template_path}/crontab"

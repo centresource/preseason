@@ -57,18 +57,21 @@ module Rails
       def recipe(name)
         File.join File.dirname(__FILE__), 'recipes', "#{name}.rb"
       end
-
-      def load_template(name, group)
-        path = File.expand_path name, template_path(group)
-        content = ERB.new(File.read path)
-        content.result(binding)
-      end
-
-      def template_path(name)
-        File.join(File.dirname(__FILE__), 'templates', name)
+      
+      def mirror_file(path, recipe_root)
+        remove_file(path) if File.exist?(path)
+        copy_file "#{recipe_root}/#{path}", path
       end
       
-      def templ_path
+      def with(str)
+        yield str
+      end
+
+      def parse_template(path)
+        ERB.new(File.read(File.join(template_path, path))).result(binding)
+      end
+
+      def template_path
         File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
       end
     end

@@ -67,6 +67,10 @@ module Rails
       def template_path(name)
         File.join(File.dirname(__FILE__), 'templates', name)
       end
+      
+      def templ_path
+        File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
+      end
     end
   end
 end

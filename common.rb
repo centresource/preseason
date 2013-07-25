@@ -29,9 +29,9 @@ required_recipes = %w(
   custom_error_pages
   guard
   spork_rspec
+  playbook
   git
   heroku
-  playbook
 )
 required_recipes.each { |required_recipe| apply recipe(required_recipe) }
 

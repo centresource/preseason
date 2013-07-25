@@ -30,3 +30,7 @@ end
 
 remove_dir '/tmp/playbook'
 remove_file '/tmp/playbook.tar.gz'
+
+append_to_file 'app/assets/javascripts/application.js', '//= require plugins'
+remove_file 'app/views/layouts/application.html.erb'
+copy_file "#{templ_path}/app/views/layouts/application.html.erb", 'app/views/layouts/application.html.erb'

@@ -6,10 +6,6 @@ module Rails
 
       attr_reader :template_options
 
-      def initialize_template
-        @template_options = {}
-      end
-
       def ask_color
         "\033[35m" # magenta
       end
@@ -23,6 +19,7 @@ module Rails
       end
 
       def load_options
+        @template_options ||= {}
         @template_options[:db_adapters] = {'postgres' => 'postgresql', 'mysql' => 'mysql2', 'sqlite' => 'sqlite3'}
         @template_options[:db_gems] = {'postgres' => 'pg', 'mysql' => 'mysql2', 'sqlite' => 'sqlite3'}
         @template_options[:db_choice] = ask "#{ask_color}What db will you be using?#{no_color}", :limited_to => ['postgres', 'mysql', 'sqlite']
@@ -63,7 +60,6 @@ module Rails
 
       def load_template(name, group)
         path = File.expand_path name, template_path(group)
-        # File.read path
         content = ERB.new(File.read path)
         content.result(binding)
       end

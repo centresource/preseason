@@ -7,12 +7,32 @@ RVM.gemset_use! "#{app_name}" # `run "rvm gemset use #{app_name}"` doesn't work 
 create_file '.ruby-version', "#{RUBY_VERSION}\n"
 create_file '.ruby-gemset', "#{app_name}\n"
 
-initialize_template
-
 load_options
 
 #loop through the recipes and apply each one
-required_recipes = %w(database gitignore gemfile bourbon_neat chosen production bundle routes flash_messages application schedule rspec whiskey_disk foreman active_admin authentication custom_error_pages guard spork_rspec git heroku)
+required_recipes = %w(
+  database
+  gitignore
+  gemfile
+  chosen
+  production
+  bundle
+  routes
+  flash_messages
+  application
+  schedule
+  rspec
+  whiskey_disk
+  foreman
+  active_admin
+  authentication
+  custom_error_pages
+  guard
+  spork_rspec
+  git
+  heroku
+  playbook
+)
 required_recipes.each { |required_recipe| apply recipe(required_recipe) }
 
 # semi-hack to make sure our post install messages are output last

@@ -1,0 +1,19 @@
+development:
+  adapter: <%= config.database.adapter_name %>
+  database: <%= app_name %>_development
+  username:
+  password:
+  host: localhost
+
+test:
+  adapter: <%= config.database.adapter_name %>
+  database: <%= app_name %>_test
+  username:
+  password:
+  host: localhost
+
+production:
+  adapter: <%= config.database.adapter_name %>
+  database: <%= app_name %>_production
+  username:
+  password:

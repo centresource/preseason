@@ -1,2 +1,0 @@
-# rspec
-generate 'rspec:install'

@@ -1,1 +1,0 @@
-append_to_file 'app/assets/javascripts/application.js', '//= require chosen-jquery'

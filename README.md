@@ -6,7 +6,9 @@ We start new Ruby on Rails projects frequently. In doing so, we end up repeating
 
 
 ### How
-N.B. This project assumes you have a development environment setup that is capable of installing Rails projects. If not, start with the [Rails Guides](http://guides.rubyonrails.org/getting_started.html "Rails Guides"). It also assumes that you are using SSH if you plan to make your project a Github repo.
+N.B. This project assumes you have a development environment setup that is capable of installing Rails projects. If not, start with the [Rails Guides](http://guides.rubyonrails.org/getting_started.html "Rails Guides"). You must also have the rvm gem installed. It also assumes that you are using SSH if you plan to make your project a Github repo.
+
+0. ```gem install rvm``` if you don't already have the rvm gem installed
 
 1. Clone the Preseason repo to the directory where your new app
    will begin:
@@ -15,7 +17,7 @@ N.B. This project assumes you have a development environment setup that is capab
 2. Make sure your db is running (postgres/mysql/etc)
 
 3. Install a new Rails applicaiton with the following flag as shown:
-        ```rails new [YourAppName] -m preseason/common.rb```
+        ```rails new [YourAppName] -m preseason/play.rb```
 
 3. Follow the prompts to choose your database, etc.
 
@@ -70,7 +72,7 @@ out a 'develop' branch
 +  [factory_girl](https://github.com/thoughtbot/factory_girl) or [object_daddy](https://github.com/flogic/object_daddy) (for our friend, [Jeremy](https://github.com/awebneck))
 +  [authlogic](https://github.com/binarylogic/authlogic), [devise](https://github.com/plataformatec/devise), or [activeadmin](http://www.activeadmin.info/) (with devise)
 +  [rvm](https://rvm.io/)
-+  [whiskey_disk](https://github.com/flogic/whiskey_disk) (for embarasssingly fast deployments)
++  [whiskey_disk](https://github.com/flogic/whiskey_disk) (for embarrassingly fast deployments)
 +  [lograge](https://github.com/roidrage/lograge)
 +  [whenever](https://github.com/javan/whenever)
 +  [foreman](https://github.com/ddollar/foreman)

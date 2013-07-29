@@ -12,7 +12,9 @@ class Preseason
   
   attr_reader :config
   
-  def initialize
+  def initialize(context)
+    Preseason::GeneratorContext.context = context
+    
     @config = OpenStruct.new(
       :database => Config::Database.new,
       :factory => Config::Factory.new,

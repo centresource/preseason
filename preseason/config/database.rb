@@ -1,5 +1,3 @@
-require_relative '../config'
-
 class Preseason
   module Config
     class Database

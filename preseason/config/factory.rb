@@ -3,23 +3,23 @@ class Preseason
     class Factory
       include Config
   
-      attr_accessor :factory
+      attr_accessor :library
   
       def ask_user
         if yes? "Will you be using Factory Girl? [y/n]"
-          self.factory = :factory_girl
+          self.library = :factory_girl
         elsif yes? "Ok then, how about Object Daddy? [y/n]"
-          self.factory = :object_daddy
+          self.library = :object_daddy
           say 'Hello, Jeremy.'
         end
       end
   
       def factory_girl?
-        factory == :factory_girl
+        library == :factory_girl
       end
   
       def jeremy?
-        factory == :object_daddy
+        library == :object_daddy
       end
     end
   end

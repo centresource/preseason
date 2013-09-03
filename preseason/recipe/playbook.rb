@@ -4,6 +4,7 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
   def prepare
     download_playbook_repo
     copy_playbook_assets
+    clean_playbook_assets
     integrate_playbook
     remove_unwanted_files
   end
@@ -40,6 +41,12 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
         end
       end
     end
+  end
+  
+  def clean_playbook_assets
+    gsub_file 'app/assets/stylesheets/screen.scss', 'bourbon/bourbon', 'bourbon'
+    gsub_file 'app/assets/stylesheets/screen.scss', 'neat/neat', 'neat'
+    gsub_file 'app/assets/stylesheets/base/_variables.scss', 'neat/neat-helpers', 'neat-helpers'
   end
   
   def integrate_playbook

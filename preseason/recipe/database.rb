@@ -6,7 +6,7 @@ class Preseason::Recipe::Database < Preseason::Recipe
 
   def prepare
     config.database.sqlite? ? prepare_sqlite : prepare_default
-    append_to_file '.gitignore', db_yml
+    append_to_file '.gitignore', "\n#{db_yml}"
   end
   
   private

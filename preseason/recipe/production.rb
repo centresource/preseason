@@ -1,6 +1,6 @@
 class Preseason::Recipe::Production < Preseason::Recipe
   def prepare
-    enable_lograge
+    enable_lograge unless config.heroku.use?
     configure_heroku_rails_deflate
   end
   

@@ -43,7 +43,6 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
   end
   
   def integrate_playbook
-    append_to_file 'app/assets/javascripts/application.js', '//= require plugins'
     mirror_file 'app/views/layouts/application.html.erb'
   end
   

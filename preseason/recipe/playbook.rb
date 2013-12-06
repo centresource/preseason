@@ -19,11 +19,9 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
   def exclude_rules
     # exclude:
     # => files and directories beginning with "."
-    # => "bourbon" directory
-    # => "neat" directory
-    # => versioned "jquery-X.X.X.min.js" file
+    # => "README.md" files
     # => "application.coffee" file
-    [/^\./, /^(?:bourbon|neat|jquery.+?min\.js|application\.coffee)$/]
+    [/^\./, /^(?:README.md|application\.coffee)$/]
   end
 
   def download_playbook_repo
@@ -34,13 +32,14 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
   end
 
   def copy_playbook_assets
-    Dir.glob('/tmp/playbook/*/{app,vendor}/assets/').each do |dir_path|
+    Dir.glob('/tmp/playbook/*/{app}/assets/').each do |dir_path|
       Find.find(dir_path) do |path|
         if exclude_rules.none? { |regex| regex =~ File.basename(path) }
           if File.directory? path
-            FileUtils.makedirs path[/(?:app|vendor).*/]
+            binding.pry
+            FileUtils.makedirs path[/(?:app).*/]
           else
-            copy_file path, path[/(?:app|vendor).*/]
+            copy_file path, path[/(?:app).*/]
           end
         else
           Find.prune

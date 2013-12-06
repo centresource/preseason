@@ -12,7 +12,7 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <%= stylesheet_link_tag "screen", :media => "all" %>
+    <%= stylesheet_link_tag 'screen', :media => 'all' %>
     <%= csrf_meta_tags %>
     <%= javascript_include_tag :modernizr %>
   </head>
@@ -28,7 +28,7 @@
     <!--[if IE 8]>
       <%= javascript_include_tag 'ie8' %>
     <![endif]-->
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag 'application' %>
     <%# all page specific javascript so go into content_for(:extra_js) %>
     <%= yield :extra_js %>
   </body>

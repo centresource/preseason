@@ -19,6 +19,7 @@ class Preseason
       :database => Config::Database.new,
       :factory => Config::Factory.new,
       :authentication => Config::Authentication.new,
+      :bitters => Config::Bitters.new,
       :heroku => Config::Heroku.new
     )
   end
@@ -34,6 +35,7 @@ class Preseason
     config.database.ask_user
     config.factory.ask_user
     config.authentication.ask_user
+    config.bitters.ask_user
     config.heroku.ask_user if config.database.postgres?
   end
 
@@ -69,6 +71,7 @@ class Preseason
       Guard
       SporkRspec
       Playbook
+      Bitters
       Routes
       Git
       Heroku

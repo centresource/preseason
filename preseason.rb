@@ -9,44 +9,46 @@ end
 
 class Preseason
   include Colorize
-  
+
   attr_reader :config
-  
+
   def initialize(context)
     Preseason::GeneratorContext.context = context
-    
+
     @config = OpenStruct.new(
       :database => Config::Database.new,
       :factory => Config::Factory.new,
       :authentication => Config::Authentication.new,
+      :bitters => Config::Bitters.new,
       :heroku => Config::Heroku.new
     )
   end
-  
+
   def game_on!
     ask_for_config
     prepare_recipes
     display_post_install_messages
   end
-  
+
   private
   def ask_for_config
     config.database.ask_user
     config.factory.ask_user
     config.authentication.ask_user
+    config.bitters.ask_user
     config.heroku.ask_user if config.database.postgres?
   end
-  
+
   def prepare_recipes
     recipes.each &:prepare
   end
-  
+
   def display_post_install_messages
     recipes.each do |recipe|
       readme "#{recipe.recipe_root}/#{recipe.post_install_hook}" if recipe.post_install_hook
     end
   end
-  
+
   def recipes
     @recipes ||= %w(
       Rvm
@@ -69,6 +71,7 @@ class Preseason
       Guard
       SporkRspec
       Playbook
+      Bitters
       Routes
       Git
       Heroku

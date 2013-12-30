@@ -91,6 +91,7 @@ out a 'develop' branch
 +  [simplecov](https://github.com/colszowka/simplecov)
 +  [bourbon](http://bourbon.io/)
 +  [neat](http://neat.bourbon.io/)
++  [bitters](http://bitters.bourbon.io)
 
 
 ### Who

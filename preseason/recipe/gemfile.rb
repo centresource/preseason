@@ -49,8 +49,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
   def add_non_heroku_gems
     unless config.heroku.use?
       insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
-        "gem 'lograge'\n
-         gem 'whenever', :require => false\n"
+        "gem 'lograge'\ngem 'whenever', :require => false\n"
       end
     end
   end

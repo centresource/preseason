@@ -3,6 +3,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     remove_comments
     remove_unwanted_gems
     remove_empty_lines
+    add_ruby_version
     add_database_gem
     add_global_gems
     add_non_heroku_gems
@@ -28,6 +29,10 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def remove_empty_lines
     gsub_file 'Gemfile', /^\n/, ''
+  end
+
+  def add_ruby_version
+    insert_into_file 'Gemfile', "ruby '#{RUBY_VERSION}'\n\n", :after => /source 'https:\/\/rubygems.org'.*\n/
   end
 
   def add_database_gem

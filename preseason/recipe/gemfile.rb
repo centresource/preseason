@@ -3,6 +3,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     remove_comments
     remove_unwanted_gems
     remove_empty_lines
+    add_ruby_version
     add_database_gem
     add_global_gems
     add_non_heroku_gems
@@ -14,26 +15,30 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_active_admin_gem
     add_authentication_gem
   end
-  
+
   private
   def remove_comments
     gsub_file 'Gemfile', /^\s*#\s*.*$/, ''
   end
-  
+
   def remove_unwanted_gems
     gems_to_remove = %w(jquery-rails) # removing jquery-rails now so we can move it to top of Gemfile
     gems_to_remove << 'sqlite3' unless config.database.sqlite?
     gsub_file 'Gemfile', /^\s*gem '(#{Regexp.union(gems_to_remove)})'.*$/, ''
   end
-  
+
   def remove_empty_lines
     gsub_file 'Gemfile', /^\n/, ''
   end
-  
+
+  def add_ruby_version
+    insert_into_file 'Gemfile', "ruby '#{RUBY_VERSION}'\n\n", :after => /source 'https:\/\/rubygems.org'.*\n/
+  end
+
   def add_database_gem
     insert_into_file 'Gemfile', "gem '#{config.database.gem_name}'\n", :after => /gem 'rails'.*\n/ unless config.database.sqlite?
   end
-  
+
   def add_global_gems
     insert_into_file 'Gemfile', :after => /gem '#{config.database.gem_name}'.*\n/ do
       %w(
@@ -45,22 +50,21 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
     end
   end
-  
+
   def add_non_heroku_gems
     unless config.heroku.use?
       insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
-        "gem 'lograge'\n
-         gem 'whenever', :require => false\n"
+        "gem 'lograge'\ngem 'whenever', :require => false\n"
       end
     end
   end
-  
+
   def add_production_gems
     gem_group :production do
       gem 'heroku_rails_deflate'
     end
   end
-  
+
   def add_development_gems
     gem_group :development do
       gem 'foreman'
@@ -73,7 +77,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gem 'binding_of_caller'
     end
   end
-  
+
   def add_development_test_gems
     gem_group :development, :test do
       gem 'pry-rails'
@@ -84,7 +88,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gem 'rspec-rails'
     end
   end
-  
+
   def add_test_gems
     gem_group :test do
       gem 'spork-rails'
@@ -96,7 +100,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gem 'simplecov'
     end
   end
-  
+
   def add_factory_gem
     if config.factory.factory_girl?
       insert_into_file 'Gemfile', :after => "group :development, :test do\n" do
@@ -106,7 +110,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       plugin 'object_daddy', :git => "git://github.com/awebneck/object_daddy.git"
     end
   end
-  
+
   def add_active_admin_gem
     if config.authentication.active_admin?
       insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
@@ -115,7 +119,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gsub_file 'Gemfile', /^\s*(gem 'jquery-rails').*$/, "\\1, '2.3.0'"
     end
   end
-  
+
   def add_authentication_gem
     if config.authentication.authlogic?
       insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do

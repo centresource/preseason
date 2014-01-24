@@ -3,6 +3,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     remove_comments
     remove_unwanted_gems
     remove_empty_lines
+    add_ruby_version
     add_database_gem
     add_global_gems
     add_non_heroku_gems
@@ -31,6 +32,10 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     gsub_file 'Gemfile', /^\n/, ''
   end
 
+  def add_ruby_version
+    insert_into_file 'Gemfile', "ruby '#{RUBY_VERSION}'\n\n", :after => /source 'https:\/\/rubygems.org'.*\n/
+  end
+
   def add_database_gem
     insert_into_file 'Gemfile', "gem '#{config.database.gem_name}'\n", :after => /gem 'rails'.*\n/ unless config.database.sqlite?
   end
@@ -56,8 +61,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
   def add_non_heroku_gems
     unless config.heroku.use?
       insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
-        "gem 'lograge'\n
-         gem 'whenever', :require => false\n"
+        "gem 'lograge'\ngem 'whenever', :require => false\n"
       end
     end
   end

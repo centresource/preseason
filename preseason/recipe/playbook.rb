@@ -16,6 +16,7 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
   end
 
   private
+
   def exclude_rules
     # exclude:
     # => files and directories beginning with "."

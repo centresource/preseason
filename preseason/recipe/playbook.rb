@@ -19,40 +19,38 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
   def exclude_rules
     # exclude:
     # => files and directories beginning with "."
-    # => "bourbon" directory
-    # => "neat" directory
-    # => versioned "jquery-X.X.X.min.js" file
+    # => "README.md" files
     # => "application.coffee" file
-    [/^\./, /^(?:bourbon|neat|jquery.+?min\.js|application\.coffee)$/]
+    [/^\./, /^(?:readme.md|application\.coffee|syntax\.scss)$/]
   end
 
   def download_playbook_repo
     get 'https://api.github.com/repos/centresource/generator-playbook/tarball', '/tmp/playbook.tar.gz'
-    remove_dir '/tmp/playbook' if Dir.exist? '/tmp/playbook'
-    empty_directory '/tmp/playbook'
-    `tar -zxvf /tmp/playbook.tar.gz -C /tmp/playbook 2> /dev/null`
+    remove_dir '/tmp/centresource-generator-playbook*' if Dir.exist? '/tmp/centresource-generator-playbook*'
+    remove_dir '/tmp/playbook-css' if Dir.exist? '/tmp/playbook-css'
+    `tar -zxvf /tmp/playbook.tar.gz -C /tmp 2> /dev/null`
+    `mv /tmp/centresource-generator-playbook*/app/templates/app/assets/_scss /tmp/playbook-css`
   end
 
   def copy_playbook_assets
-    Dir.glob('/tmp/playbook/*/{app,vendor}/assets/').each do |dir_path|
-      Find.find(dir_path) do |path|
-        if exclude_rules.none? { |regex| regex =~ File.basename(path) }
-          if File.directory? path
-            FileUtils.makedirs path[/(?:app|vendor).*/]
-          else
-            copy_file path, path[/(?:app|vendor).*/]
-          end
+    Find.find('/tmp/playbook-css/') do |path|
+      if exclude_rules.none? { |regex| regex =~ File.basename(path) }
+        style_path = path.gsub('/tmp/playbook-css/', 'app/assets/stylesheets/')
+        if File.directory? path
+          FileUtils.makedirs style_path
         else
-          Find.prune
+          copy_file path, style_path
         end
+      else
+        Find.prune
       end
     end
   end
 
   def clean_playbook_assets
     gsub_file 'app/assets/stylesheets/screen.scss', 'bourbon/app/assets/stylesheets/bourbon', 'bourbon'
+    gsub_file 'app/assets/stylesheets/screen.scss', 'neat/app/assets/stylesheets/neat-helpers', 'neat-helpers'
     gsub_file 'app/assets/stylesheets/screen.scss', 'neat/app/assets/stylesheets/neat', 'neat'
-    gsub_file 'app/assets/stylesheets/base/_variables.scss', 'neat/app/assets/stylesheets/neat-helpers', 'neat-helpers'
   end
 
   def integrate_playbook
@@ -63,7 +61,8 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
     remove_file 'app/assets/stylesheets/application.css'
     remove_file 'public/index.html'
     remove_file 'app/assets/images/rails.png'
-    remove_dir '/tmp/playbook'
+    remove_dir '/tmp/centresource-generator-playbook*'
+    remove_dir '/tmp/playbook-css'
     remove_file '/tmp/playbook.tar.gz'
   end
 end

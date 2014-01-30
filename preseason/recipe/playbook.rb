@@ -25,18 +25,18 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
   end
 
   def download_playbook_repo
-    get 'https://api.github.com/repos/centresource/generator-playbook/tarball', '/tmp/playbook.tar.gz'
+    get 'https://api.github.com/repos/centresource/playbook/tarball', '/tmp/playbook.tar.gz'
     remove_dir '/tmp/playbook' if Dir.exist? '/tmp/playbook'
     empty_directory '/tmp/playbook'
     `tar -zxvf /tmp/playbook.tar.gz -C /tmp/playbook 2> /dev/null`
+    `mv /tmp/playbook/* /tmp/playbook/files`
   end
 
   def copy_playbook_assets
-    Dir.glob('/tmp/playbook/*/{app}/assets/').each do |dir_path|
+    Dir.glob('/tmp/playbook/files/app/assets/{stylesheets,javascripts}').each do |dir_path|
       Find.find(dir_path) do |path|
         if exclude_rules.none? { |regex| regex =~ File.basename(path) }
           if File.directory? path
-            binding.pry
             FileUtils.makedirs path[/(?:app).*/]
           else
             copy_file path, path[/(?:app).*/]
@@ -46,12 +46,17 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
         end
       end
     end
+
+    # get vendor assets
+    copy_file '/tmp/playbook/files/vendor/assets/stylesheets/normalize.css', 'vendor/assets/stylesheets/normalize.css'
+    copy_file '/tmp/playbook/files/vendor/assets/javascripts/selectivizr.js', 'vendor/assets/javascripts/selectivizr.js'
+    copy_file '/tmp/playbook/files/vendor/assets/javascripts/respond.js', 'vendor/assets/javascripts/respond.js'
   end
 
   def clean_playbook_assets
-    gsub_file 'app/assets/stylesheets/screen.scss', 'bourbon/app/assets/stylesheets/bourbon', 'bourbon'
-    gsub_file 'app/assets/stylesheets/screen.scss', 'neat/app/assets/stylesheets/neat', 'neat'
-    gsub_file 'app/assets/stylesheets/base/_variables.scss', 'neat/app/assets/stylesheets/neat-helpers', 'neat-helpers'
+    gsub_file 'app/assets/stylesheets/screen.scss', 'bourbon/bourbon', 'bourbon'
+    gsub_file 'app/assets/stylesheets/screen.scss', 'neat/neat', 'neat'
+    gsub_file 'app/assets/stylesheets/base/_variables.scss', 'neat/neat-helpers', 'neat-helpers'
   end
 
   def integrate_playbook

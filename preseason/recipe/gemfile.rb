@@ -15,6 +15,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_active_admin_gem
     add_authentication_gem
     add_bitters_gem
+    add_modernizr_gem
   end
 
   private
@@ -54,6 +55,10 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def add_bitters_gem
     insert_into_file 'Gemfile', "gem 'bitters'\n", :after => /gem 'neat'.*\n/
+  end
+
+  def add_modernizr_gem
+    insert_into_file 'Gemfile', "  gem 'modernizr-rails'\n", :after => /gem 'uglifier'.*\n/
   end
 
   def add_non_heroku_gems

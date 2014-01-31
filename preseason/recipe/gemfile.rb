@@ -16,6 +16,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_authentication_gem
     add_bitters_gem
     add_modernizr_gem
+    add_normalize_gem
     add_ie8_gems
   end
 
@@ -60,6 +61,10 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def add_modernizr_gem
     insert_into_file 'Gemfile', "  gem 'modernizr-rails'\n", :after => /gem 'uglifier'.*\n/
+  end
+
+  def add_normalize_gem
+    insert_into_file 'Gemfile', "  gem 'normalize-rails'\n", :after => /gem 'modernizr-rails'.*\n/
   end
 
   def add_ie8_gems

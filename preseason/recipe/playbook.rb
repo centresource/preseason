@@ -11,6 +11,7 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
     download_playbook_repo
     copy_playbook_assets
     clean_playbook_assets
+    add_normalize_import
     integrate_playbook
     remove_unwanted_files
   end
@@ -53,6 +54,10 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
     gsub_file 'app/assets/stylesheets/screen.scss', 'neat/app/assets/stylesheets/neat-helpers', 'neat-helpers'
     gsub_file 'app/assets/stylesheets/screen.scss', 'neat/app/assets/stylesheets/neat', 'neat'
     `mv app/assets/stylesheets/base/_mixins app/assets/stylesheets/base/mixins`
+  end
+
+  def add_normalize_import
+    insert_into_file 'app/assets/stylesheets/screen.scss', "@import \"normalize-rails/normalize\";\n", :before => '@import "bourbon";'
   end
 
   def integrate_playbook

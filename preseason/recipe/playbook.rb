@@ -52,6 +52,7 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
     gsub_file 'app/assets/stylesheets/screen.scss', 'bourbon/app/assets/stylesheets/bourbon', 'bourbon'
     gsub_file 'app/assets/stylesheets/screen.scss', 'neat/app/assets/stylesheets/neat-helpers', 'neat-helpers'
     gsub_file 'app/assets/stylesheets/screen.scss', 'neat/app/assets/stylesheets/neat', 'neat'
+    `mv app/assets/stylesheets/base/_mixins app/assets/stylesheets/base/mixins`
   end
 
   def integrate_playbook

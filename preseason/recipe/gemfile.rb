@@ -15,6 +15,9 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_active_admin_gem
     add_authentication_gem
     add_bitters_gem
+    add_modernizr_gem
+    add_normalize_gem
+    add_ie8_gems
   end
 
   private
@@ -53,8 +56,22 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
   end
 
   def add_bitters_gem
-    if config.bitters.bitters?
-      insert_into_file 'Gemfile', "gem 'bitters'\n", :after => /gem 'neat'.*\n/
+    insert_into_file 'Gemfile', "gem 'bitters'\n", :after => /gem 'neat'.*\n/
+  end
+
+  def add_modernizr_gem
+    insert_into_file 'Gemfile', "  gem 'modernizr-rails'\n", :after => /gem 'uglifier'.*\n/
+  end
+
+  def add_normalize_gem
+    insert_into_file 'Gemfile', "  gem 'normalize-rails'\n", :after => /gem 'modernizr-rails'.*\n/
+  end
+
+  def add_ie8_gems
+    if config.ie8.enabled?
+      insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
+        "gem 'selectivizr-rails'\ngem 'respond-rails'\n"
+      end
     end
   end
 
@@ -91,7 +108,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gem 'pry-nav'
       gem 'awesome_print'
       gem 'quiet_assets'
-      gem 'heroku'
       gem 'rspec-rails'
     end
   end

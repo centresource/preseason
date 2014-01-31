@@ -1,5 +1,3 @@
-require 'pry'
-
 class Preseason::Recipe::Bitters < Preseason::Recipe
   def prepare
     install_bitters

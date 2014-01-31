@@ -16,6 +16,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_authentication_gem
     add_bitters_gem
     add_modernizr_gem
+    add_ie8_gems
   end
 
   private
@@ -59,6 +60,14 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def add_modernizr_gem
     insert_into_file 'Gemfile', "  gem 'modernizr-rails'\n", :after => /gem 'uglifier'.*\n/
+  end
+
+  def add_ie8_gems
+    if config.ie8.enabled?
+      insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
+        "gem 'selectivizr-rails'\ngem 'respond-rails'\n"
+      end
+    end
   end
 
   def add_non_heroku_gems

@@ -19,6 +19,7 @@ class Preseason
       :database => Config::Database.new,
       :factory => Config::Factory.new,
       :authentication => Config::Authentication.new,
+      :ie8 => Config::IE8.new,
       :heroku => Config::Heroku.new
     )
   end
@@ -35,6 +36,7 @@ class Preseason
     config.factory.ask_user
     config.authentication.ask_user
     config.heroku.ask_user if config.database.postgres?
+    config.ie8.ask_user
   end
 
   def prepare_recipes
@@ -69,6 +71,7 @@ class Preseason
       Guard
       SporkRspec
       Playbook
+      IE8
       Bitters
       Routes
       Git

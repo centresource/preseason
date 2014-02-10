@@ -19,8 +19,8 @@ class Preseason::Recipe::Bitters < Preseason::Recipe
     remove_dir 'app/assets/stylesheets/bitters'
     remove_file 'app/assets/stylesheets/base/_bitters.scss'
     remove_file 'app/assets/stylesheets/base/mixins/imports.scss'
-    create_file 'app/assets/stylesheets/modules/.gitkeep'
-    create_file 'app/assets/stylesheets/pages/.gitkeep'
+    create_file 'app/assets/stylesheets/component/.gitkeep'
+    create_file 'app/assets/stylesheets/page/.gitkeep'
   end
 
   def rename_assets

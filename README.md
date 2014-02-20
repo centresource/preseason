@@ -2,7 +2,10 @@
 A Centresource Interactive Agency open internal project for generating new Rails applications.
 
 ### Why
-We start new Ruby on Rails projects frequently. In doing so, we end up repeating many of the same steps. As Rubyists, we are always looking for ways to DRY things up. This project is intended to serve as a starting place for new Rails applications. Perhaps most importantly, it is **NOT** supposed to cover everything that every Rails app will ever need, but to be a good starting place.
+We start new Ruby on Rails projects frequently. In doing so, we end up
+repeating many of the same steps. As Rubyists, we are always looking for
+ways to DRY things up. This project is intended to serve as a launching
+pad for new Rails applications. Perhaps most importantly, it is **NOT** supposed to cover everything that every Rails app will ever need, but to be a good starting place.
 
 ### How
 N.B. This project assumes you have a development environment setup that is capable of installing Rails projects. If not, start with the [Rails Guides](http://guides.rubyonrails.org/getting_started.html "Rails Guides"). You must also have the rvm gem installed. It also assumes that you are using SSH if you plan to make your project a Github repo.
@@ -110,4 +113,5 @@ Preseason is a project by the development team at the [Centresource Interactive 
       * Just run `brew install qt`. [Learn more](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
 
 ## License
-preseason is Copyright © 2012-2013 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.
+Preseason is Copyright © 2012-2013 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.
+

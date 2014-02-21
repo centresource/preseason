@@ -5,7 +5,7 @@ require_relative 'preseason/colorize'
 require_relative 'preseason/config'
 require_relative 'preseason/recipe'
 
-module Preseason
+class Preseason
   Dir.glob("#{File.expand_path(File.dirname(__FILE__))}/preseason/{recipe,config}/*").each do |path|
     require path
   end

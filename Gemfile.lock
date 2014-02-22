@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     preseason (0.0.1)
+      rails
 
 GEM
   remote: https://rubygems.org/
@@ -89,5 +90,4 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.3)
   preseason!
-  rails
   rake

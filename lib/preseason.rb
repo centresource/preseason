@@ -5,11 +5,11 @@ require_relative 'preseason/colorize'
 require_relative 'preseason/config'
 require_relative 'preseason/recipe'
 
-class Preseason
-  Dir.glob("#{File.expand_path(File.dirname(__FILE__))}/preseason/{recipe,config}/*").each do |path|
-    require path
-  end
+Dir.glob("#{File.expand_path(File.dirname(__FILE__))}/preseason/{recipe,config}/*").each do |path|
+  require path
+end
 
+module Preseason
   class Preseason
     include Colorize
 
@@ -79,7 +79,7 @@ class Preseason
         Routes
         Git
         Heroku
-      ).map { |recipe_name| "Preseason::Recipe::#{recipe_name}".constantize.new(config) }
+      ).map { |recipe_name| "Preseason::Preseason::Recipe::#{recipe_name}".constantize.new(config) }
     end
   end
 end

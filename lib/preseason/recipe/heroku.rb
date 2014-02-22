@@ -1,7 +1,7 @@
-class Preseason::Recipe::Heroku < Preseason::Recipe
+class Preseason::Preseason::Recipe::Heroku < Preseason::Preseason::Recipe
   def prepare
     return unless config.heroku.use?
-    
+
     if yes?("Do you want to setup Heroku? [y/n]")
       run "heroku auth:login"
       run "heroku apps:create #{app_name}"

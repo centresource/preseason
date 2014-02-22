@@ -1,6 +1,6 @@
 require 'rvm'
 
-class Preseason::Recipe::Rvm < Preseason::Recipe
+class Preseason::Preseason::Recipe::Rvm < Preseason::Preseason::Recipe
   def prepare
     run "rvm gemset create #{app_name}"
     RVM.gemset_use! "#{app_name}" # `run "rvm gemset use #{app_name}"` doesn't work -- rvm still uses the terminal's current gemset

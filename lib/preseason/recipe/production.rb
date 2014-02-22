@@ -1,4 +1,4 @@
-class Preseason::Recipe::Production < Preseason::Recipe
+class Preseason::Preseason::Recipe::Production < Preseason::Preseason::Recipe
   PRODUCTION = 'config/environments/production.rb'
 
   def prepare

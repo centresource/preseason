@@ -1,12 +1,6 @@
 require 'find'
 
-# TODO
-# - Include correct directories/files: app/templates/app/asets/*
-# - Exclude correct files
-# - Rename `.scss` files to `.css.scss`
-# - Add gem dependecies: Bourbon, Neat, Normalize
-
-class Preseason::Recipe::Playbook < Preseason::Recipe
+class Preseason::Preseason::Recipe::Playbook < Preseason::Preseason::Recipe
   def prepare
     download_playbook_repo
     copy_playbook_assets

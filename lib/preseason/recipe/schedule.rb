@@ -1,4 +1,4 @@
-class Preseason::Recipe::Schedule < Preseason::Recipe
+class Preseason::Preseason::Recipe::Schedule < Preseason::Preseason::Recipe
   def prepare
     mirror_file 'config/schedule.rb'
   end

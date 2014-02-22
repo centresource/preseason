@@ -4,6 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'preseason/version'
 
 Gem::Specification.new do |spec|
+  spec.required_ruby_version = '>= 1.9.2'
   spec.name          = "preseason"
   spec.version       = Preseason::VERSION
   spec.authors       = ["Centresource Interactive Agency"]
@@ -13,7 +14,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/centresource/preseason"
   spec.license       = "MIT"
 
-  spec.add_development_dependency "rails"
+  spec.add_dependency "rails"
+  spec.add_development_dependency "pry"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = ["preseason"]

@@ -3,8 +3,6 @@
 require 'rails/generators'
 require 'rails/generators/rails/app/app_generator'
 
-argv = ARGV + ['-m #{File.dirname(__FILE__)}/../lib/play.rb']
-args = Rails::Generators::ARGVScrubber.new(argv).prepare!
-Rails::Generators::AppGenerator.start args
-
-#`rails new #{ARGV[0]} -m #{File.dirname(__FILE__)}/../lib/play.rb`
+#TODO remove any args except the project name
+argv = ARGV + ['-m'] +  ["#{File.dirname(__FILE__)}/../lib/play.rb"]
+Rails::Generators::AppGenerator.start argv

@@ -1,4 +1,4 @@
-class Preseason::Recipe::Routes < Preseason::Recipe
+class Preseason::Preseason::Recipe::Routes < Preseason::Preseason::Recipe
   def prepare
     remove_comments_and_newlines
     add_root_path

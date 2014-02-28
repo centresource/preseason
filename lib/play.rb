@@ -1,2 +1,2 @@
 require File.expand_path(File.join(File.dirname(__FILE__), 'preseason'))
-Preseason::Preseason.new(self).game_on!
+Preseason.new(self).game_on!

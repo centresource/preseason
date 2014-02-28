@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Gitignore < Preseason::Preseason::Recipe
+class Preseason::Recipe::Gitignore < Preseason::Recipe
   def prepare
     append_to_file '.gitignore' do
       "\n" << %w(

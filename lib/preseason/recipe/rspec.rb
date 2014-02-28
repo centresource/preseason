@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Rspec < Preseason::Preseason::Recipe
+class Preseason::Recipe::Rspec < Preseason::Recipe
   def prepare
     generate 'rspec:install'
   end

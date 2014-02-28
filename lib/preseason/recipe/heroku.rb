@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Heroku < Preseason::Preseason::Recipe
+class Preseason::Recipe::Heroku < Preseason::Recipe
   def prepare
     return unless config.heroku.use?
 

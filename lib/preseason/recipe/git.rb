@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Git < Preseason::Preseason::Recipe
+class Preseason::Recipe::Git < Preseason::Recipe
   attr_reader :repo_name, :github_username, :public_repo
 
   def prepare

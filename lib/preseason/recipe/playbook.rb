@@ -1,6 +1,6 @@
 require 'find'
 
-class Preseason::Preseason::Recipe::Playbook < Preseason::Preseason::Recipe
+class Preseason::Recipe::Playbook < Preseason::Recipe
   def prepare
     download_playbook_repo
     copy_playbook_assets

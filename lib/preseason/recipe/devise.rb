@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Devise < Preseason::Preseason::Recipe
+class Preseason::Recipe::Devise < Preseason::Recipe
   def prepare
     return unless config.authentication.devise?
 

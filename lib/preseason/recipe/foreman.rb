@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Foreman < Preseason::Preseason::Recipe
+class Preseason::Recipe::Foreman < Preseason::Recipe
   def prepare
     create_file 'Procfile', ''
   end

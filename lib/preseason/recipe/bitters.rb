@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Bitters < Preseason::Preseason::Recipe
+class Preseason::Recipe::Bitters < Preseason::Recipe
   def prepare
     install_bitters
     cleanup_bitters

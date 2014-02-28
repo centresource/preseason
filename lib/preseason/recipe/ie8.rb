@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::IE8 < Preseason::Preseason::Recipe
+class Preseason::Recipe::IE8 < Preseason::Recipe
   def prepare
     return unless config.ie8.enabled?
 

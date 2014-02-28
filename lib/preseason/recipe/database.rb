@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Database < Preseason::Preseason::Recipe
+class Preseason::Recipe::Database < Preseason::Recipe
   def recipe_root
     # this is only used in the sqlite context
     "#{template_path}/sqlite"

@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Authlogic < Preseason::Preseason::Recipe
+class Preseason::Recipe::Authlogic < Preseason::Recipe
   def prepare
     return unless config.authentication.authlogic?
 

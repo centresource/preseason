@@ -1,20 +1,18 @@
-module Preseason
-  class Preseason
-    module Config
-      class Bitters
-        include Config
+class Preseason
+  module Config
+    class Bitters
+      include Config
 
-        attr_accessor :library
+      attr_accessor :library
 
-        def ask_user
-          if yes? "Would you like to use Bourbon's predefined styles: Bitters? [y/n]"
-            self.library = :bitters
-          end
+      def ask_user
+        if yes? "Would you like to use Bourbon's predefined styles: Bitters? [y/n]"
+          self.library = :bitters
         end
+      end
 
-        def bitters?
-          library == :bitters
-        end
+      def bitters?
+        library == :bitters
       end
     end
   end

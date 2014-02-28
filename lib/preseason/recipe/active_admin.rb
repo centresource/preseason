@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::ActiveAdmin < Preseason::Preseason::Recipe
+class Preseason::Recipe::ActiveAdmin < Preseason::Recipe
   def prepare
     return unless config.authentication.active_admin?
 

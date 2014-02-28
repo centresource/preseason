@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Guard < Preseason::Preseason::Recipe
+class Preseason::Recipe::Guard < Preseason::Recipe
   def prepare
     run 'bundle exec guard init'
     gsub_file 'Guardfile', ":cucumber_env => { 'RAILS_ENV' => 'test' }, ", ''

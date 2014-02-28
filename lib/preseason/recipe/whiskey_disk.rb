@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::WhiskeyDisk < Preseason::Preseason::Recipe
+class Preseason::Recipe::WhiskeyDisk < Preseason::Recipe
   def prepare
     mirror_file 'config/deploy.yml' unless config.heroku.use?
   end

@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::CustomErrorPages < Preseason::Preseason::Recipe
+class Preseason::Recipe::CustomErrorPages < Preseason::Recipe
   def prepare
     handle_errors_in_app
     create_errors_controller

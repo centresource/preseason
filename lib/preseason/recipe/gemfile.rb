@@ -1,4 +1,4 @@
-class Preseason::Preseason::Recipe::Gemfile < Preseason::Preseason::Recipe
+class Preseason::Recipe::Gemfile < Preseason::Recipe
   def prepare
     remove_comments
     remove_unwanted_gems

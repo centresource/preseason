@@ -50,7 +50,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
         jquery-rails
         bourbon
         neat
-        chosen-rails
       ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
     end
   end
@@ -69,7 +68,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def add_ie8_gems
     if config.ie8.enabled?
-      insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
+      insert_into_file 'Gemfile', :after => /gem 'neat'\n/ do
         "gem 'selectivizr-rails'\ngem 'respond-rails'\n"
       end
     end
@@ -77,7 +76,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def add_non_heroku_gems
     unless config.heroku.use?
-      insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
+      insert_into_file 'Gemfile', :after => /gem 'neat'\n/ do
         "gem 'lograge'\ngem 'whenever', :require => false\n"
       end
     end

@@ -55,7 +55,6 @@ class Preseason
       Gemfile
       Gitignore
       Database
-      Chosen
       Production
       Bundle
       Flash

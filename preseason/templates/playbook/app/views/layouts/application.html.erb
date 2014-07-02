@@ -25,7 +25,7 @@
     <%= yield %>
 
     <%= javascript_include_tag 'application' %>
-    <%# all page specific javascript so go into content_for(:extra_js) %>
-    <%= yield :extra_js %>
+    <%# all page-specific content to go into content_for(:body_close) %>
+    <%= yield :body_close %>
   </body>
 </html>

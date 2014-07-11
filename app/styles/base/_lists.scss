@@ -28,3 +28,27 @@ dl {
     margin: 0;
   }
 }
+
+
+// Strip default styles
+.list-unstyled {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+
+// Linear lists split with pipes
+.list-linear-pipes {
+  @extend .list-unstyled;
+
+  > li {
+    border-right: 1px solid $base-border-color;
+    display: inline-block;
+    padding: 0 0.5em;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

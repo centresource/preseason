@@ -14,22 +14,24 @@ $header-line-height: $base-font-size * 1.25;
 $base-border-radius: em(3);
 
 // Colors
-$blue-dark: #2E3E4F;
-$blue: #477DCA;
-$dark-gray: #333;
-$medium-gray: #999;
-$gray: #BDC3C7;
-$light-gray: #DDD;
-$light-red: #FBE3E4;
-$light-yellow: #FFF6BF;
-$light-green: #E6EFC2;
+$blue-dark:             #2E3E4F;
+$blue:                  #477DCA;
+$dark-gray:             #333;
+$medium-gray:           #999;
+$gray:                  #BDC3C7;
+$light-gray:            #DDD;
+$light-red:             #FBE3E4;
+$light-yellow:          #FFF6BF;
+$light-green:           #E6EFC2;
+$orange:                #da6b11;
+$light-orange:          #fe925d;
 
 // Background Color
 $base-background-color: white;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-accent-color: $orange;
 
 // Link Colors
 $base-link-color: $base-accent-color;

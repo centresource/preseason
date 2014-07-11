@@ -22,10 +22,31 @@
  * ---------------------------------------------------------------------------
  */
 
+ .wrap {
+  @include outer-container;
+ }
+
 .header-primary {}
 
-.nav-primary {}
+.nav-primary {
+  padding: 1em;
+  text-align: center;
+
+  @include media($medium-screen) {
+    text-align: right;
+  }
+}
 
 .content-primary {}
 
-.footer-primary {}
+.footer-primary {
+  background: $blue-dark;
+  color: #989DA4;
+  padding: 3em 1em;
+  text-align: center;
+
+  .logo-cs-labs {
+    display: block;
+    margin: 0 auto;
+  }
+}

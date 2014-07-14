@@ -1,0 +1,40 @@
+.logo-cs {
+  background-color: $dark-gray;
+  border-radius: 100px;
+  margin: 0 auto;
+  padding: 1em;
+  width: 77px;
+
+  .logo-cs-mini {
+    background: url('../../images/logo-cs-mini.png') no-repeat 0 0;
+    height: 44px;
+    width: 47px;
+
+    @include hidpi(2) {
+      background-image: url('../../images/logo-cs-mini_2x.png');
+    }
+  }
+}
+
+.logo-cs-labs {
+  background: url('../../images/logo-cs-labs.png') no-repeat 0 0;
+  display: inline-block;
+  height: 39px;
+  width: 207px;
+  @include hide-text;
+  @include transition(opacity 0.2s linear);
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  @include hidpi(2) {
+    background-image: url('../../images/logo-cs-labs_2x.png');
+    background-size: 207px 39px;
+  }
+}
+
+.centered {
+  display: table-cell;
+  vertical-align: middle;
+}

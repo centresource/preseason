@@ -15,6 +15,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
+  color: $orange;
+  font-family: $sans-serif-alt;
+  font-weight: 400;
   font-size: $base-font-size * 2.25; // 16 * 2.25 = 36px
 }
 
@@ -23,11 +26,12 @@ h2 {
 }
 
 h3 {
-  font-size: $base-font-size * 1.75; // 16 * 1.75 = 28px
+  font-size: $base-font-size * 1.5; // 16 * 1.5 = 24px
 }
 
 h4 {
-  font-size: $base-font-size * 1.5; // 16 * 1.5 = 24px
+  font-size: $base-font-size * 1.125; // 16 * 1.125 = 18px
+  font-weight: 400;
 }
 
 h5 {
@@ -84,4 +88,9 @@ cite {
   &:before {
     content: '\2014 \00A0';
   }
+}
+
+// Misc
+.mega {
+  font-size: em(52);
 }

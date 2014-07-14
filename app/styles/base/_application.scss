@@ -22,11 +22,14 @@
  * ---------------------------------------------------------------------------
  */
 
- .wrap {
+.wrap {
   @include outer-container;
- }
+}
 
-.header-primary {}
+.wrap-skinny {
+  margin: 0 auto;
+  max-width: em(600);
+}
 
 .nav-primary {
   padding: 1em;

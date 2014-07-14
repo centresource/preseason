@@ -1,0 +1,97 @@
+.welcome {
+  color: $gray;
+  display: table;
+  min-height: em(320);
+  padding: 1em 1em 5em 1em;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  h1,
+  h4 {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    color: $gray;
+  }
+
+  .version {
+    font-size: em(12);
+  }
+
+  .btn-round {
+    bottom: 1em;
+    left: 50%;
+    margin-left: em(-24);
+    position: absolute;
+  }
+}
+
+.about {
+  background: darken(white, 4);
+  color: darken($base-font-color, 20);
+  padding: 6em 1em;
+  text-align: center;
+
+  .tools {
+    @extend .list-unstyled;
+    margin: 2.5em auto;
+    text-align: center;
+
+    > li {
+      display: block;
+      margin: 0.75em 0;
+      position: relative;
+
+      @include media($medium-screen) {
+        display: inline-block;
+        margin: 0;
+        padding: 0 1em;
+        vertical-align: middle;
+      }
+
+      @include media($large-screen) {
+        padding: 0 2em;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &.plus {
+        color: $light-gray;
+        font-size: em(30);
+        padding: 0;
+      }
+    }
+
+    img {
+      vertical-align: middle;
+    }
+  }
+
+  p {
+    margin-right: auto;
+    margin-left: auto
+  }
+}
+
+.usage {
+  padding: 4em 1em;
+
+  .instructions {
+    // @extend .wrap-skinny;
+    margin-bottom: 4em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+

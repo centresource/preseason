@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Preseason | Centresource Interactive Agency
+title: Preseason Rails Generator | Centresource Interactive Agency
 ---
 
 <section id="welcome" class="welcome">
@@ -16,4 +16,43 @@ title: Preseason | Centresource Interactive Agency
   <a href="#about" id="go-to-about" class="btn-round">
     <i class="fa fa-chevron-down"></i>
   </a>
+</section>
+
+<section id="about" class="about">
+  <p>
+    We start new Ruby on Rails projects frequently. In doing so, we end up repeating many of the same steps. As Rubyists, we are always looking for ways to DRY things up. This project is intended to serve as a starting place for new Rails applications. Perhaps most importantly, it is NOT supposed to cover everything that every Rails app will ever need, but to be a good starting place.
+  </p>
+</section>
+
+<section id="usage" class="usage">
+  <div class="instructions">
+    <h3>Prerequisites</h3>
+    <p>
+      This project assumes you have a development environment setup that is capable of installing Rails projects. If not, start with the <a href="http://guides.rubyonrails.org/getting_started.html" target="_blank">Rails Guides</a>. You must also have the rvm gem installed. It also assumes that you are using SSH if you plan to make your project a Github repo.
+    </p>
+  </div>
+
+  <div class="instructions">
+    <h3>Installation</h3>
+    <h6>1. Install the rvm gem if you don't already have it installed</h6>
+    <pre><code class="language-bash">gem install rvm</code></pre>
+
+    <h6>2. Clone the Preseason repo to the directory where your new app will begin:</h6>
+    <pre><code class="language-bash">git clone git@github.com:centresource/preseason.git</code></pre>
+
+    <h6 class="no-snippet">3. Make sure your db is running (postgres/mysql/etc)</h6>
+
+    <h6>4. Install a new Rails applicaiton with the following flag as shown:</h6>
+    <pre><code class="language-bash">rails new [YourAppName] -m preseason/play.rb</code></pre>
+
+    <h6 class="no-snippet">5. Follow the prompts to choose your database, etc.</h6>
+
+    <h6>7. cd into your application directory</h6>
+    <pre><code class="language-bash">cd [YourAppName]</code></pre>
+
+    <h6 class="no-snippet">8. Make magic happen and dreams come true. <i class="fa fa-fighter-jet"></i></h6>
+
+    <h6><i class="fa fa-info-circle md-gray"></i> No magic happening? Made a mistake? Just <code>rm -rf</code> your application's directory and repeat steps 1-4.</h6>
+    <pre><code class="language-bash">rm -rf [YourAppName]</code></pre>
+  </div>
 </section>

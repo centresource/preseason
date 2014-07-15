@@ -8,9 +8,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  color: $dark-gray;
   font-family: $header-font-family;
   line-height: $header-line-height;
-  margin: 0;
+  margin: 0 0 0.67em;
   text-rendering: optimizeLegibility; // Fix the character spacing for headings
 }
 
@@ -42,8 +43,10 @@ h6 {
   font-size: $base-font-size;
 }
 
-p {
-  margin: 0 0 ($base-line-height * .5);
+p,
+pre {
+  margin: 0 auto 2em;
+  max-width: 38rem;
 }
 
 a {
@@ -90,7 +93,37 @@ cite {
   }
 }
 
+code {
+  color: $base-font-color;
+  background: white;
+  border: 1px solid $base-border-color;
+  font-weight: 400;
+  padding: em(3);
+}
+
+pre {
+  background: white;
+  border: 1px solid $base-border-color;
+  margin-bottom: 2em;
+  padding: em(16);
+  overflow: auto;
+
+  code {
+    border: none;
+    padding: 0;
+  }
+}
+
+@include selection {
+  background: lighten($orange, 30);
+  color: darken($orange, 20);
+}
+
 // Misc
 .mega {
   font-size: em(52);
+}
+
+.no-snippet {
+  margin-bottom: em(32);
 }

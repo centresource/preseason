@@ -85,7 +85,7 @@
   padding: 4em 1em;
 
   .instructions {
-    // @extend .wrap-skinny;
+    @extend .wrap-skinny;
     margin-bottom: 4em;
 
     &:last-child {

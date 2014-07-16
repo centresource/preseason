@@ -57,7 +57,6 @@ class Preseason
       Gemfile
       Gitignore
       Database
-      Chosen
       Production
       Bundle
       Flash
@@ -74,7 +73,6 @@ class Preseason
       SporkRspec
       Playbook
       IE8
-      Bitters
       Routes
       Git
       Heroku

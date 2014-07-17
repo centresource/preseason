@@ -45,18 +45,12 @@
       position: relative;
 
       @include media($medium-screen) {
-        display: inline-block;
         margin: 0;
-        padding: 0 1em;
         vertical-align: middle;
       }
 
-      @include media($large-screen) {
-        padding: 0 2em;
-      }
-
       &:first-child {
-        padding-left: 0;
+        margin-bottom: 1em
       }
 
       &:last-child {

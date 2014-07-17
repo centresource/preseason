@@ -19,6 +19,18 @@ title: Preseason Rails Generator | Centresource Interactive Agency
 </section>
 
 <section id="about" class="about">
+  <ul class="tools">
+    <li>
+      <img src="/images/logo-rails_2x.png" class="logo-rails">
+    </li>
+    <li class="plus">
+      <i class="fa fa-plus"></i>
+    </li>
+    <li>
+      <a id="technolgies" href="">More...</a>
+    </li>
+  </ul>
+
   <p>
     We start new Ruby on Rails projects frequently. In doing so, we end up repeating many of the same steps. As Rubyists, we are always looking for ways to DRY things up. This project is intended to serve as a starting place for new Rails applications. Perhaps most importantly, it is NOT supposed to cover everything that every Rails app will ever need, but to be a good starting place.
   </p>
@@ -54,5 +66,40 @@ title: Preseason Rails Generator | Centresource Interactive Agency
 
     <h6><i class="fa fa-info-circle md-gray"></i> No magic happening? Made a mistake? Just <code>rm -rf</code> your application's directory and repeat steps 1-4.</h6>
     <pre><code class="language-bash">rm -rf [YourAppName]</code></pre>
+    <hr>
+
+    <h3>About ERB Templates</h3>
+    <p>If you need to write a template that executes ERB in the context of the running script and also outputs ERB for the purposes of the generated application code, be sure to escape your application-bound ERB as <code><%%></code></p>
+
+    <h3>Preseason does the following:</h3>
+    <ul class="list-default-ul">
+      <li>Asks for your db of preference</li>
+      <li>Asks for your preferences on a few gems</li>
+      <li>Creates an RVM gemset for your project and switches to that gemset</li>
+      <li>Creates a new config/database.yml file with info from your db of choice</li>
+      <li>Adds the database.yml to .gitignore and creates a database.yml.dist as a placeholder</li>
+      <li>Adds .ruby-version, .ruby-gemset, swp files, public/assets, s3 files, etc to .gitignore</li>
+      <li>Cleans up the Gemfile (removes comments and empty lines)</li>
+      <li>Enables lograge for production (for non-Heroku apps)</li>
+      <li>Installs gems via bundler</li>
+      <li>Creates a database</li>
+      <li>Cleans up routes.rb</li>
+      <li>Sets up flash messages in the application layout</li>
+      <li>Sets config.assets.initialize_on_precompile to false</li>
+      <li>Sets config.autoload_paths += %W(\#{config.root}/lib)</li>
+      <li>Sets up a template for using whenever for cronjobs (for non-Heroku apps)</li>
+      <li>Installs rspec</li>
+      <li>Installs and sets up bourbon and neat</li>
+      <li>Creates a template for your whiskey_disk deploy in config/deploy.yml (for non-Heroku apps)</li>
+      <li>Creates Procfile for foreman</li>
+      <li>Starts guard</li>
+      <li>Creates a new spec_helper with spork and simplecov</li>
+      <li>Removes the test unit directory, the smoke test page, and the Rails logo.</li>
+      <li>Migrates the db and recreates the test db from the DEV's schema</li>
+      <li>Initializes a git repository, makes an "initial commit", and checks out a 'develop' branch</li>
+      <li>Setup Heroku</li>
+    </ul>
   </div>
+
+
 </section>

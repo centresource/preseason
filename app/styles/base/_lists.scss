@@ -30,6 +30,11 @@ dl {
 }
 
 
+//
+.list-default-ul {
+  @extend %default-ul;
+}
+
 // Strip default styles
 .list-unstyled {
   margin: 0;

@@ -69,9 +69,86 @@
     }
   }
 
+  .tools-inline {
+    @extend .tools;
+    margin-bottom: 2em;
+
+    > li {
+      display: block;
+      margin: 0.75em 0;
+      position: relative;
+
+      @include media($medium-screen) {
+        display: inline-block;
+        margin: 0;
+        padding: 0 1em;
+        vertical-align: middle;
+      }
+
+      @include media($large-screen) {
+        padding: 0 2em;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      &.plus {
+        color: $light-gray;
+        font-size: em(30);
+        padding: 0;
+      }
+    }
+
+    img {
+      vertical-align: middle;
+    }
+  }
+
   p {
     margin-right: auto;
     margin-left: auto
+  }
+}
+
+.about {
+  .tools-more {
+    @extend .wrap-skinny;
+    margin-bottom: 2em;
+
+    .fa,
+    .link-more {
+      @include transition(ease-in-out 0.3s);
+
+      &:hover {
+        .fa {
+          color: darken($light-gray, 20%);
+        }
+      }
+    }
+
+    .tech-container {
+      @include row();
+      padding-top: 2em;
+
+      .tech-container-content {
+        @include span-columns(4 of 12);
+      }
+    }
+
+    .list-technologies {
+      font-size: 0.9em;
+      text-align: left;
+    }
+
+    .databases {
+      font-size: 0.9em;
+      margin-top: 1.5em;
+    }
   }
 }
 

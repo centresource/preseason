@@ -130,9 +130,8 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
   def add_active_admin_gem
     if config.authentication.active_admin?
       insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
-        "gem 'activeadmin'\n"
+        "gem 'activeadmin', :github => 'gregbell/active_admin'\n"
       end
-      gsub_file 'Gemfile', /^\s*(gem 'jquery-rails').*$/, "\\1, '2.3.0'"
     end
   end
 

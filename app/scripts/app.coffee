@@ -27,3 +27,11 @@ CS.scrollToEl = (e) ->
   $('html, body').animate
       scrollTop: $('#about').offset().top,
     2000
+
+# Slide toggle tools list & rotate more icon
+tech_container = $('.tech-container, .databases').hide()
+$('#techLink').on 'click', (e) ->
+  e.preventDefault()
+  tech_container.slideToggle('slow')
+  $(this).find('.fa').toggleClass('icon-rotate')
+

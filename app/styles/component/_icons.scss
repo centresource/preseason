@@ -1,5 +1,13 @@
 .fa {
-  &.md-gray {
+  &.medium-gray {
     color: $medium-gray;
   }
+
+  &.light-gray {
+    color: $light-gray;
+  }
+}
+
+.icon-rotate {
+  @include transform(rotate(45deg));
 }

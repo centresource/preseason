@@ -35,3 +35,13 @@ $('#techLink').on 'click', (e) ->
   tech_container.slideToggle('slow')
   $(this).find('.fa').toggleClass('icon-rotate')
 
+
+$('#go-to-magic').click ->
+ $('html, body').animate
+    scrollTop: $('#preseason-magic').offset().top,
+  2000
+
+$('#go-to-install').click ->
+ $('html, body').animate
+    scrollTop: $('#instructions').offset().top,
+  2000

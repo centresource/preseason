@@ -2,6 +2,11 @@
 
 [Describe the project.]
 
+# ToDo
+- Update tools list based on gemified version of Preseason
+- Update installation instructions based on Preseason gem
+- Add Preason logo
+
 ## Project Setup
 This project utilizes Playbook, reference Playbook's [setup guide](https://github.com/centresource/generator-playbook#get-started).
 

@@ -89,9 +89,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gem 'guard-rspec'
       gem 'guard-spork'
       gem 'rb-fsevent', :require => false
-      gem 'growl'
-      gem 'better_errors'
-      gem 'binding_of_caller'
     end
   end
 

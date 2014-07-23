@@ -122,8 +122,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       insert_into_file 'Gemfile', :after => "group :development, :test do\n" do
         "  gem 'factory_girl_rails'\n"
       end
-    elsif config.factory.jeremy?
-      plugin 'object_daddy', :git => "git://github.com/awebneck/object_daddy.git"
     end
   end
 

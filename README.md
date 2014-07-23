@@ -67,7 +67,7 @@ If you need to write a template that executes ERB in the context of the running 
 #### Preseason offers use of the following technologies:
 
 +  Either postgresql, mysql2, or sqlite3
-+  [factory_girl](https://github.com/thoughtbot/factory_girl) or [object_daddy](https://github.com/flogic/object_daddy) (for our friend, [Jeremy](https://github.com/awebneck))
++  [factory_girl](https://github.com/thoughtbot/factory_girl)
 +  [authlogic](https://github.com/binarylogic/authlogic), [devise](https://github.com/plataformatec/devise), or [activeadmin](http://www.activeadmin.info/) (with devise)
 +  [rvm](https://rvm.io/)
 +  [whiskey_disk](https://github.com/flogic/whiskey_disk) (for embarrassingly fast deployments)
@@ -76,7 +76,6 @@ If you need to write a template that executes ERB in the context of the running 
 +  [foreman](https://github.com/ddollar/foreman)
 +  [guard](https://github.com/guard/guard)
 +  [spork](https://github.com/sporkrb/spork)
-+  [better_errors](https://github.com/charliesome/better_errors)
 +  [pry](http://pryrepl.org/)
 +  [awesome_print](https://github.com/michaeldv/awesome_print)
 +  [quiet_assets](https://github.com/evrone/quiet_assets)

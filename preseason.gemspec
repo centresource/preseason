@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'preseason/version'
 
 Gem::Specification.new do |spec|
-  spec.required_ruby_version = '>= 1.9.2'
+  spec.required_ruby_version = '>= 2.0.0'
   spec.name          = "preseason"
   spec.version       = Preseason::VERSION
   spec.authors       = ["Centresource Interactive Agency"]

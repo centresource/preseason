@@ -21,11 +21,11 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
   end
 
   def download_playbook_repo
-    get 'https://api.github.com/repos/centresource/generator-playbook/tarball', '/tmp/playbook.tar.gz'
-    remove_dir '/tmp/centresource-generator-playbook*' if Dir.exist? '/tmp/centresource-generator-playbook*'
+    get 'https://github.com/centresource/generator-playbook/archive/v1.1.0.tar.gz', '/tmp/playbook.tar.gz'
+    remove_dir '/tmp/generator-playbook-1.1.0' if Dir.exist? '/tmp/generator-playbook-1.1.0'
     remove_dir '/tmp/playbook-css' if Dir.exist? '/tmp/playbook-css'
     `tar -zxvf /tmp/playbook.tar.gz -C /tmp 2> /dev/null`
-    `mv /tmp/centresource-generator-playbook*/app/templates/app/assets/_scss /tmp/playbook-css`
+    `mv /tmp/generator-playbook-1.1.0/app/templates/app/assets/_scss /tmp/playbook-css`
   end
 
   def copy_playbook_assets

@@ -48,7 +48,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
         jquery-rails
         bourbon
         neat
-      ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
+      ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n"
     end
   end
 
@@ -77,8 +77,10 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
   end
 
   def add_production_gems
-    gem_group :production do
-      gem 'heroku_rails_deflate'
+    if config.heroku.use?
+      gem_group :production do
+        gem 'heroku_rails_deflate'
+      end
     end
   end
 

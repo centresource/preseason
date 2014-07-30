@@ -18,11 +18,11 @@ class Preseason
     Preseason::GeneratorContext.context = context
 
     @config = OpenStruct.new(
-      :database => Config::Database.new,
-      :factory => Config::Factory.new,
-      :authentication => Config::Authentication.new,
-      :ie8 => Config::IE8.new,
-      :heroku => Config::Heroku.new
+      :database       => Preseason::Config::Database.new,
+      :factory        => Preseason::Config::Factory.new,
+      :authentication => Preseason::Config::Authentication.new,
+      :ie8            => Preseason::Config::IE8.new,
+      :heroku         => Preseason::Config::Heroku.new
     )
   end
 
@@ -57,7 +57,6 @@ class Preseason
       Gemfile
       Gitignore
       Database
-      Chosen
       Production
       Bundle
       Flash
@@ -74,7 +73,6 @@ class Preseason
       SporkRspec
       Playbook
       IE8
-      Bitters
       Routes
       Git
       Heroku

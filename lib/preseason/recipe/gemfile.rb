@@ -14,7 +14,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_factory_gem
     add_active_admin_gem
     add_authentication_gem
-    add_bitters_gem
     add_modernizr_gem
     add_normalize_gem
     add_ie8_gems
@@ -46,30 +45,24 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
   def add_global_gems
     insert_into_file 'Gemfile', :after => /gem '#{config.database.gem_name}'.*\n/ do
       %w(
-        whiskey_disk
         jquery-rails
         bourbon
         neat
-        chosen-rails
-      ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n\n"
+      ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n"
     end
   end
 
-  def add_bitters_gem
-    insert_into_file 'Gemfile', "gem 'bitters'\n", :after => /gem 'neat'.*\n/
-  end
-
   def add_modernizr_gem
-    insert_into_file 'Gemfile', "  gem 'modernizr-rails'\n", :after => /gem 'uglifier'.*\n/
+    insert_into_file 'Gemfile', "gem 'modernizr-rails'\n", :after => /gem 'uglifier'.*\n/
   end
 
   def add_normalize_gem
-    insert_into_file 'Gemfile', "  gem 'normalize-rails'\n", :after => /gem 'modernizr-rails'.*\n/
+    insert_into_file 'Gemfile', "gem 'normalize-rails'\n", :after => /gem 'modernizr-rails'.*\n/
   end
 
   def add_ie8_gems
     if config.ie8.enabled?
-      insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
+      insert_into_file 'Gemfile', :after => /gem 'jquery-rails'\n/ do
         "gem 'selectivizr-rails'\ngem 'respond-rails'\n"
       end
     end
@@ -77,15 +70,17 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def add_non_heroku_gems
     unless config.heroku.use?
-      insert_into_file 'Gemfile', :after => /gem 'chosen-rails'\n/ do
+      insert_into_file 'Gemfile', :after => /gem 'jquery-rails'\n/ do
         "gem 'lograge'\ngem 'whenever', :require => false\n"
       end
     end
   end
 
   def add_production_gems
-    gem_group :production do
-      gem 'heroku_rails_deflate'
+    if config.heroku.use?
+      gem_group :production do
+        gem 'heroku_rails_deflate'
+      end
     end
   end
 
@@ -96,9 +91,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gem 'guard-rspec'
       gem 'guard-spork'
       gem 'rb-fsevent', :require => false
-      gem 'growl'
-      gem 'better_errors'
-      gem 'binding_of_caller'
     end
   end
 
@@ -129,17 +121,14 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       insert_into_file 'Gemfile', :after => "group :development, :test do\n" do
         "  gem 'factory_girl_rails'\n"
       end
-    elsif config.factory.jeremy?
-      plugin 'object_daddy', :git => "git://github.com/awebneck/object_daddy.git"
     end
   end
 
   def add_active_admin_gem
     if config.authentication.active_admin?
       insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
-        "gem 'activeadmin'\n"
+        "gem 'activeadmin', :github => 'gregbell/active_admin'\n"
       end
-      gsub_file 'Gemfile', /^\s*(gem 'jquery-rails').*$/, "\\1, '2.3.0'"
     end
   end
 

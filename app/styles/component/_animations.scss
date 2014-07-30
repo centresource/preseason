@@ -2,20 +2,14 @@
   @include animation(wiggle 0.5s infinite);
 }
 
-@-webkit-keyframes wiggle {
-  0% {-webkit-transform:rotate(4deg);}
-  50% {-webkit-transform:rotate(-4deg);}
-  100% {-webkit-transform:rotate(4deg);}
-}
-
-@-moz-keyframes wiggle {
-  0% {-moz-transform:rotate(4deg);}
-  50% {-moz-transform:rotate(-4deg);}
-  100% {-moz-transform:rotate(4deg);}
-}
-
-@keyframes wiggle {
-  0% {transform:rotate(4deg);}
-  50% {transform:rotate(-4deg);}
-  100% {transform:rotate(4deg);}
+@include keyframes(wiggle) {
+  0% {
+    @include transform(rotate(4deg));
+  }
+  50% {
+    @include transform(rotate(-4deg));
+  }
+  100% {
+    @include transform(rotate(4deg));
+  }
 }

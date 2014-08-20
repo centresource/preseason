@@ -122,6 +122,14 @@ Preseason is a project by the development team at the [Centresource Interactive 
 * If you don't have QT libraries installed, you may get this error when installing Capybara
    * `Command 'qmake -spec macx-g++' not available`
       * Just run `brew install qt`. [Learn more](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
+* If you get the following error when building the gem, you need to stage the deletion of
+`preseason.gem` file by `git stage -u preseason.x.x.x.gem`
+```
+└[$] gem build preseason.gemspec
+WARNING:  See http://guides.rubygems.org/specification-reference/ for help
+ERROR:  While executing gem ... (Gem::InvalidSpecificationException)
+        from bin/rails:4:in `<main>'
+```
 
 ## License
-Preseason is Copyright © 2012-2013 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.
+Preseason is Copyright © 2014 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.

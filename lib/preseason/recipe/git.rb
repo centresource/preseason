@@ -5,7 +5,7 @@ class Preseason::Recipe::Git < Preseason::Recipe
     remove_file 'README.rdoc'
     create_file 'README.md', parse_template('readme/README.md.erb')
 
-    run 'rake db:migrate db:test:clone'
+    run 'rake db:migrate'
     run 'git init'
     run 'git add .'
     run 'git commit -m "Initial commit"'

@@ -21,11 +21,12 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
   end
 
   def download_playbook_repo
-    get 'https://github.com/centresource/generator-playbook/archive/v1.1.0.tar.gz', '/tmp/playbook.tar.gz'
-    remove_dir '/tmp/generator-playbook-1.1.0' if Dir.exist? '/tmp/generator-playbook-1.1.0'
+    version = '1.1.3.1'
+    get "https://github.com/centresource/playbook/archive/v#{version}.tar.gz", '/tmp/playbook.tar.gz'
+    remove_dir "/tmp/playbook-#{version}" if Dir.exist? "/tmp/playbook-#{version}"
     remove_dir '/tmp/playbook-css' if Dir.exist? '/tmp/playbook-css'
     `tar -zxvf /tmp/playbook.tar.gz -C /tmp 2> /dev/null`
-    `mv /tmp/generator-playbook-1.1.0/app/templates/app/assets/_scss /tmp/playbook-css`
+    `mv /tmp/playbook-#{version}/styles /tmp/playbook-css`
   end
 
   def copy_playbook_assets
@@ -47,7 +48,6 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
     gsub_file 'app/assets/stylesheets/screen.scss', 'bourbon/app/assets/stylesheets/bourbon', 'bourbon'
     gsub_file 'app/assets/stylesheets/screen.scss', 'neat/app/assets/stylesheets/neat-helpers', 'neat-helpers'
     gsub_file 'app/assets/stylesheets/screen.scss', 'neat/app/assets/stylesheets/neat', 'neat'
-    `mv app/assets/stylesheets/base/_mixins app/assets/stylesheets/base/mixins`
   end
 
   def add_normalize_import

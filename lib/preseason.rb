@@ -72,6 +72,7 @@ class Preseason
       Guard
       SporkRspec
       Playbook
+      Initializer
       IE8
       Routes
       Git

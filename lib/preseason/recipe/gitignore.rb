@@ -15,6 +15,7 @@ class Preseason::Recipe::Gitignore < Preseason::Recipe
         erd.pdf
         public/assets
         solr/data
+        logfile
       ).join("\n")
     end
   end

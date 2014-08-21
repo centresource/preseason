@@ -45,6 +45,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
   def add_global_gems
     insert_into_file 'Gemfile', :after => /gem '#{config.database.gem_name}'.*\n/ do
       %w(
+        whiskey_disk
         jquery-rails
         bourbon
         neat

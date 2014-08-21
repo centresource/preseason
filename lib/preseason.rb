@@ -74,6 +74,7 @@ class Preseason
       Playbook
       Initializer
       IE8
+      Bitters
       Routes
       Git
       Heroku

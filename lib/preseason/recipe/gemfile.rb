@@ -14,6 +14,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_factory_gem
     add_active_admin_gem
     add_authentication_gem
+    add_bitters_gem
     add_modernizr_gem
     add_normalize_gem
     add_ie8_gems
@@ -50,6 +51,10 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
         neat
       ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n"
     end
+  end
+
+  def add_bitters_gem
+    insert_into_file 'Gemfile', "gem 'bitters'\n", :after => /gem 'neat'.*\n/
   end
 
   def add_modernizr_gem

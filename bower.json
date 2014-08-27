@@ -8,6 +8,7 @@
     "modernizr": "~2.8.2",
     "jquery": "~1.11.1",
     "selectivizr": "~1.0.2",
+    "lscache": "1.0.2",
     "respond": "~1.4.2"
   },
   "devDependencies": {}

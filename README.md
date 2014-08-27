@@ -1,11 +1,11 @@
 # preseason
 
-[Describe the project.]
+The marketing site for the Preseason gem.
 
 # ToDo
 - Update tools list based on gemified version of Preseason
 - Update installation instructions based on Preseason gem
-- Add Preason logo
+- Add Preseason logo
 
 ## Project Setup
 This project utilizes Playbook, reference Playbook's [setup guide](https://github.com/centresource/generator-playbook#get-started).

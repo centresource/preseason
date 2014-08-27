@@ -5,10 +5,21 @@ $ ->
   $('#go-to-about').click window.CS.scrollToEl
 
   $release = $('#release')
-  request = $.get 'https://api.github.com/repos/centresource/preseason/tags'
-  request.success (data) -> $release.html data[0]['name']
-  request.error (jqXHR, textStatus, errorThrown) ->
-    $release.html 'available on <a href="https://www.github.com/centresource/preseason/tags">Github</a>'
+  latest = lscache.get 'latestRelease'
+  if latest
+    $release.html latest
+  else
+    request = $.get 'https://api.github.com/repos/centresource/preseason/tags'
+    request.success (data) ->
+      if data.length is 0
+        str = 'in pre-release development'
+        lscache.set 'latestRelease', str, 1440
+        $release.html str
+      else
+        lscache.set 'latestRelease', data[0]['name'], 720
+        $release.html data[0]['name']
+    request.error (jqXHR, textStatus, errorThrown) ->
+      $release.html 'available on <a href="https://www.github.com/centresource/preseason/tags">Github</a>'
 
 
 CS.setWelcomeHeight = ->

@@ -6,7 +6,11 @@ $ ->
 
   $release = $('#release')
   request = $.get 'https://api.github.com/repos/centresource/preseason/tags'
-  request.success (data) -> $release.html data[0]['name']
+  request.success (data) ->
+    if data.length is 0
+      $release.html 'in pre-release development'
+    else
+      $release.html data[0]['name']
   request.error (jqXHR, textStatus, errorThrown) ->
     $release.html 'available on <a href="https://www.github.com/centresource/preseason/tags">Github</a>'
 

@@ -2,30 +2,33 @@
 A Centresource Interactive Agency open internal project for generating new Rails applications.
 
 ### Why
-We start new Ruby on Rails projects frequently. In doing so, we end up repeating many of the same steps. As Rubyists, we are always looking for ways to DRY things up. This project is intended to serve as a starting place for new Rails applications. Perhaps most importantly, it is **NOT** supposed to cover everything that every Rails app will ever need, but to be a good starting place.
+We start new Ruby on Rails projects frequently. In doing so, we end up
+repeating many of the same steps. As Rubyists, we are always looking for
+ways to DRY things up. This project is intended to serve as a launching
+pad for new Rails applications. Perhaps most importantly, it is **NOT** supposed to cover everything that every Rails app will ever need, but to be a good starting place.
 
 ### How
 N.B. This project assumes you have a development environment setup that is capable of installing Rails projects. If not, start with the [Rails Guides](http://guides.rubyonrails.org/getting_started.html "Rails Guides"). You must also have the rvm gem installed. It also assumes that you are using SSH if you plan to make your project a Github repo.
 
 0. Install the `rvm` gem if you don't already have it installed
 
-        gem install rvm
+        `gem install rvm`
 
-1. Clone the Preseason repo to the directory where your new app will begin:
+1. Install the preseason gem into your global gemset:
 
-        git clone git@github.com:centresource/preseason.git
+        `gem install preseason`
 
 2. Make sure your db is running (postgres/mysql/etc)
 
-3. Install a new Rails applicaiton with the following flag as shown:
+3. Install a new Rails application with:
 
-        rails new [YourAppName] -m preseason/play.rb
+        `preseason <name_of_your_project>`
 
 3. Follow the prompts to choose your database, etc.
 
-4. Make a mistake? Just ```rm -rf``` your application's directory and repeat steps 1-4.
+4. Make a mistake? Just `rm -rf` your application's directory and repeat steps 1-4.
 
-5. ```cd``` into your application directory
+5. `cd` into your application directory
 
 6. Make magic happen and dreams come true.
 
@@ -64,7 +67,7 @@ If you need to write a template that executes ERB in the context of the running 
 #### Preseason offers use of the following technologies:
 
 +  Either postgresql, mysql2, or sqlite3
-+  [factory_girl](https://github.com/thoughtbot/factory_girl) or [object_daddy](https://github.com/flogic/object_daddy) (for our friend, [Jeremy](https://github.com/awebneck))
++  [factory_girl](https://github.com/thoughtbot/factory_girl)
 +  [authlogic](https://github.com/binarylogic/authlogic), [devise](https://github.com/plataformatec/devise), or [activeadmin](http://www.activeadmin.info/) (with devise)
 +  [rvm](https://rvm.io/)
 +  [whiskey_disk](https://github.com/flogic/whiskey_disk) (for embarrassingly fast deployments)
@@ -73,7 +76,6 @@ If you need to write a template that executes ERB in the context of the running 
 +  [foreman](https://github.com/ddollar/foreman)
 +  [guard](https://github.com/guard/guard)
 +  [spork](https://github.com/sporkrb/spork)
-+  [better_errors](https://github.com/charliesome/better_errors)
 +  [pry](http://pryrepl.org/)
 +  [awesome_print](https://github.com/michaeldv/awesome_print)
 +  [quiet_assets](https://github.com/evrone/quiet_assets)
@@ -90,7 +92,7 @@ If you need to write a template that executes ERB in the context of the running 
 
 ### Who
 
-Preseason is a project by the development team at the [Centresource Interactive Agency](http://www.centresource.com) in Nashville, TN. The main push for this project is from [Cade Truitt](https://github.com/cade), [Travis Roberts](https://github.com/travisr), [Jeremy Holland](https://github.com/awebneck), [Adam Scott](https://github.com/ascot21) and [Max Beizer](https://github.com/maxbeizer)
+Preseason is a project by the development team at the [Centresource Interactive Agency](http://www.centresource.com) in Nashville, TN. The main push for this project is from [Cade Truitt](https://github.com/cade), [Travis Roberts](https://github.com/travisr), [Jeremy Holland](https://github.com/awebneck), [Adam Scott](https://github.com/ascot21), [Rian Rainey](https://github.com/rianrainey), and [Max Beizer](https://github.com/maxbeizer)
 
 ### ToDos
 * integration spec setup?
@@ -104,10 +106,30 @@ Preseason is a project by the development team at the [Centresource Interactive 
 3. push to your fork
 4. submit a pull request
 
+### Developing Locally
+1. Fork the repo
+2. Clone it to your local machine
+3. `gem uninstall preseason` if you have it installed already
+  - you may be prompted about removing an executable called preseason. The answer is yes
+4. Crack the project open and make magic happen
+5. `gem build preseason.gemspec`
+  - should you receive an error message about the gem containing itself, try `rm preseason-0.0.1.gem` (or whatever version number we are on and stage that deletion
+6. `gem install preseason` in your global gemset
+7. In a separate terminal (or just outside the preseason dir), `presason <the name of your test project>`
+8. Information on tests coming soon.
+
 ## Troubleshooting
 * If you don't have QT libraries installed, you may get this error when installing Capybara
    * `Command 'qmake -spec macx-g++' not available`
       * Just run `brew install qt`. [Learn more](https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit)
+* If you get the following error when building the gem, you need to stage the deletion of
+`preseason.gem` file by `git stage -u preseason.x.x.x.gem`
+```
+└[$] gem build preseason.gemspec
+WARNING:  See http://guides.rubygems.org/specification-reference/ for help
+ERROR:  While executing gem ... (Gem::InvalidSpecificationException)
+        from bin/rails:4:in `<main>'
+```
 
 ## License
-preseason is Copyright © 2012-2013 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.
+Preseason is Copyright © 2014 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.

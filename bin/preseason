@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'rails/generators'
+require 'rails/generators/rails/app/app_generator'
+
+#TODO remove any args except the project name
+argv = ARGV + ['-m'] +  ["#{File.dirname(__FILE__)}/../lib/play.rb"]
+Rails::Generators::AppGenerator.start argv

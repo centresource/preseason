@@ -100,12 +100,6 @@ Preseason is a project by the development team at the [Centresource Interactive 
 * add logic to setup activeadmin for authlogic and allow choice between
   devise and authlogic rather than y/n for authlogic
 
-## Contributing
-1. fork the repo
-2. exhibit your brilliance
-3. push to your fork
-4. submit a pull request
-
 ### Developing Locally
 1. Fork the repo
 2. Clone it to your local machine
@@ -130,19 +124,6 @@ WARNING:  See http://guides.rubygems.org/specification-reference/ for help
 ERROR:  While executing gem ... (Gem::InvalidSpecificationException)
         from bin/rails:4:in `<main>'
 ```
-
-### Submitting Bug Reports
-
-If you're nice enough to submit a bug and make Preseason better, please
-provide the following information to make resolving the bug easier.
-
-1. Your operating system (and version)
-2. Your shell type and version (Bash, Zsh, Bourne, etc)
-3. Clear steps to reproduce the bug. What answers did you select during
-   the prompts?
-4. Any error messages seen in the console
-5. A description of what you expected to happen
-6. A description of what actually happened
 
 ## License
 Preseason is Copyright © 2014 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.

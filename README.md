@@ -131,5 +131,18 @@ ERROR:  While executing gem ... (Gem::InvalidSpecificationException)
         from bin/rails:4:in `<main>'
 ```
 
+### Submitting Bug Reports
+
+If you're nice enough to submit a bug and make Preseason better, please
+provide the following information to make resolving the bug easier.
+
+1. Your operating system (and version)
+2. Your shell type and version (Bash, Zsh, Bourne, etc)
+3. Clear steps to reproduce the bug. What answers did you select during
+   the prompts?
+4. Any error messages seen in the console
+5. A description of what you expected to happen
+6. A description of what actually happened
+
 ## License
 Preseason is Copyright © 2014 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.

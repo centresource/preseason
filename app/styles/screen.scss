@@ -52,16 +52,18 @@
 @import "base/fonts";
 @import "base/library";
 @import "base/application";
+@import "base/welcome";
+@import "base/about";
+@import "base/nav";
 
 
 
 /* Components
  * -----------------------------------------------------------------------------*/
-@import "component/icons";
-@import "component/animations";
+// @import "component/modal";
 
 
 
 /* Pages
  * -----------------------------------------------------------------------------*/
-@import "page/home";
+// @import "page/home";

@@ -8,17 +8,13 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $dark-gray;
   font-family: $header-font-family;
   line-height: $header-line-height;
-  margin: 0 0 0.67em;
+  margin: 0;
   text-rendering: optimizeLegibility; // Fix the character spacing for headings
 }
 
 h1 {
-  color: $orange;
-  font-family: $sans-serif-alt;
-  font-weight: 400;
   font-size: $base-font-size * 2.25; // 16 * 2.25 = 36px
 }
 
@@ -27,12 +23,11 @@ h2 {
 }
 
 h3 {
-  font-size: $base-font-size * 1.5; // 16 * 1.5 = 24px
+  font-size: $base-font-size * 1.75; // 16 * 1.75 = 28px
 }
 
 h4 {
-  font-size: $base-font-size * 1.125; // 16 * 1.125 = 18px
-  font-weight: 400;
+  font-size: $base-font-size * 1.5; // 16 * 1.5 = 24px
 }
 
 h5 {
@@ -43,10 +38,8 @@ h6 {
   font-size: $base-font-size;
 }
 
-p,
-pre {
-  margin: 0 auto 2em;
-  max-width: 38rem;
+p {
+  margin: 0 0 ($base-line-height * .5);
 }
 
 a {
@@ -91,39 +84,4 @@ cite {
   &:before {
     content: '\2014 \00A0';
   }
-}
-
-code {
-  color: $base-font-color;
-  background: white;
-  border: 1px solid $base-border-color;
-  font-weight: 400;
-  padding: em(3);
-}
-
-pre {
-  background: white;
-  border: 1px solid $base-border-color;
-  margin-bottom: 2em;
-  padding: em(16);
-  overflow: auto;
-
-  code {
-    border: none;
-    padding: 0;
-  }
-}
-
-@include selection {
-  background: lighten($orange, 30);
-  color: darken($orange, 20);
-}
-
-// Misc
-.mega {
-  font-size: em(52);
-}
-
-.no-snippet {
-  margin-bottom: em(32);
 }

@@ -7,24 +7,4 @@ input[type="submit"] {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-
-  &:focus {
-    outline: none;
-  }
-}
-
-.btn-round {
-  background: $light-gray;
-  border-radius: 50%;
-  color: #bdc3c7;
-  display: inline-block;
-  line-height: 1.0;
-  padding: 1em;
-  @include transition-property(background, color);
-  @include transition-duration(0.2s);
-  @include transition-timing-function(linear);
-
-  &:hover {
-    background: darken($light-gray, 10);
-  }
 }

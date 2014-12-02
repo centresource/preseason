@@ -17,8 +17,13 @@
 }
 
 .welcome .btn-round {
-  bottom: 3.5em;
+  bottom: 4.5em;
   left: 50%;
   margin-left: -1.5em;
   position: absolute;
+}
+
+#welcome {
+  background-image: url(../images/pattern.png);
+  background-repeat: repeat;
 }

@@ -7,7 +7,7 @@ body {
   line-height: $unitless-line-height;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h5 {
   font-family: $header-font-family;
   line-height: $header-line-height;
   margin: 0;
@@ -19,7 +19,10 @@ h1 {
 }
 
 h2 {
-  font-size: $base-font-size * 2; // 16 * 2 = 32px
+  font-size: 2em;
+  color: $light-red;
+  text-align: center;
+  padding: .5em 0 1.5em 0;
 }
 
 h3 {
@@ -27,7 +30,11 @@ h3 {
 }
 
 h4 {
-  font-size: $base-font-size * 1.5; // 16 * 1.5 = 24px
+  font-family: $sans-serif;
+  font-size: 1.125em;
+  font-weight: 600;
+  padding-bottom: 0;
+  margin-bottom: .25em;
 }
 
 h5 {
@@ -35,20 +42,27 @@ h5 {
 }
 
 h6 {
-  font-size: $base-font-size;
+  font-family: $header-font-family;
+  font-size: 1.15em;
+  margin: 1em;
+  color: $light-red;
 }
 
 p {
   margin: 0 0 ($base-line-height * .5);
+  font-family: $sans-serif;
+  font-size: 1em;
 }
 
+
 a {
+  font-family: $sans-serif;
   @include transition(color 0.1s linear);
-  color: $base-link-color;
+  color: $light-red;
   text-decoration: none;
 
   &:hover {
-    color: $hover-link-color;
+    color: #94282a;
   }
 
   &:active, &:focus {

@@ -1,8 +1,8 @@
 // Typography
-$sans-serif: $helvetica;
+$sans-serif: 'Open Sans', sans-serif;;
 $serif: $georgia;
 $base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
+$header-font-family: 'Paytone One', sans-serif;
 
 // Sizes
 $base-font-size: 1em;
@@ -19,6 +19,7 @@ $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
+$light-red: #ED4444;
 
 // Background Color
 $base-background-color: white;
@@ -29,7 +30,7 @@ $base-accent-color: $blue;
 
 // Link Colors
 $base-link-color: $base-accent-color;
-$hover-link-color: darken($base-accent-color, 15);
+$hover-link-color: $light-red;
 $base-button-color: $base-link-color;
 $hover-button-color: $hover-link-color;
 

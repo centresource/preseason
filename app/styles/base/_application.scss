@@ -22,51 +22,10 @@
  * ---------------------------------------------------------------------------
  */
 
- h1 {
-  font-family: 'Paytone One', sans-serif;
- }
-
-  h2 {
-  font-family: 'Paytone One', sans-serif;
-  font-size: 2em;
-  color: #ed4444;
-  text-align: center;
-  padding: .5em 0 1.5em 0;
- }
-
- h4 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1.125em;
-  font-weight: 600;
-  padding-bottom: .75em;
- }
-
- p, body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
- }
-
  p, pre {
   margin: 0 auto;
   max-width: 38rem;
  }
-
- a {
-  font-family: 'Open Sans', sans-serif;
-  color: #ed4444;
-  text-decoration: none;
-  -webkit-transition: color .2s linear;
-  -moz-transition: color .2s linear;
-  transition: color .2s linear;
-}
-
-a:hover {
-  color: #94282a;
-}
-
-// a:visited {
-//   color: #ed4444;
-// }
 
 .header-primary {}
 

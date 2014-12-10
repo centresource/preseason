@@ -41,14 +41,14 @@ title: preseason-site
   <div class="instructions">
     <h4>1. Install the rvm gem if you don't already have it installed</h4>
     <pre>
-      <code class="language-bash">`gem install rvm`</code>
+      <code class="language-bash">gem install rvm</code>
     </pre>
   </div>
 
   <div class="instructions">
     <h4>2. Install the preseason gem into your global gemset:</h4>
     <pre>
-      <code class="language-bash">`gem install preseason`</code>
+      <code class="language-bash">gem install preseason</code>
     </pre>
   </div>
 
@@ -59,7 +59,7 @@ title: preseason-site
   <div class="instructions">
     <h4>4. Install a new Rails application with:</h4>
     <pre>
-      <code class="language-bash">`preseason <name_of_your_project>`</code>
+      <code class="language-bash">preseason name_of_your_project</code>
     </pre>
   </div>
 
@@ -71,7 +71,7 @@ title: preseason-site
     <h4>6. Make a mistake?<br>Just rm -rf your application's directory and repeat steps 1-4.</h4>
     <pre>
       <code class="language-bash">rm -rf</code>
-    </pre> 
+    </pre>
   </div>
 
   <div class="instructions">
@@ -81,15 +81,6 @@ title: preseason-site
   <div class="instructions">
     <h4>8. Make magic happen and dreams come true.</h4>
   </div>
-
-  <h2 class="minor">Note About ERB Templates</h2>
-
-  <div class="instructions">
-    <p>If you need to write a template that executes ERB in the context of the running script and also outputs ERB for the purposes of the generated application code, be sure to escape your application-bound ERB as:</p>
-    <pre>
-      <code class="language-bash"><%%></code>
-    </pre>
-  <div>
 </section>
 
 <section id="what" class="what">
@@ -116,12 +107,12 @@ title: preseason-site
       <li>installs and sets up bourbon and neat</li>
       <li>creates a template for your whiskey_disk deploy in config/deploy.yml (for non-Heroku apps)</li>
       <li>creates Procfile for foreman</li>
-      <li>starts guard</li>
+      <li>installs guard</li>
       <li>creates a new spec_helper with spork and simplecov</li>
       <li>removes the test unit directory, the smoke test page, and the Rails logo.</li>
       <li>migrates the db and recreates the test db from the DEV's schema</li>
-      <li>initializes a git repository, makes an "initial commit", and checks out a 'develop' branch</li>
-      <li>setup Heroku</li>
+      <li>initializes a git repository, makes an "initial commit", and checks out a 'staging' branch</li>
+      <li>sets up Heroku</li>
     </ul>
   </div>
 

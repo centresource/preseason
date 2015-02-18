@@ -126,4 +126,4 @@ ERROR:  While executing gem ... (Gem::InvalidSpecificationException)
 ```
 
 ## License
-Preseason is Copyright © 2014 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.
+Preseason is Copyright © 2015 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.

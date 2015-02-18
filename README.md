@@ -101,4 +101,4 @@ Preseason is a project by the development team at the [Centresource Interactive 
   devise and authlogic rather than y/n for authlogic
 
 ## License
-Preseason is Copyright © 2014 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.
+Preseason is Copyright © 2015 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.

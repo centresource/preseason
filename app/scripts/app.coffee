@@ -9,18 +9,14 @@ $ ->
 CS.getReleaseInfo = ->
   $release = $('#release')
   latest = lscache.get 'latestRelease'
+  tagIconHTML = '<spon class="fa fa-tag"></span> '
 
-  return $release.html latest if latest
+  return $release.html(tagIconHTML + latest) if latest
 
   $.get('https://api.github.com/repos/centresource/preseason/tags')
     .then (data) ->
-      if data.length is 0
-        str = 'in pre-release development'
-        lscache.set 'latestRelease', str, 1440
-        $release.html str
-      else
-        lscache.set 'latestRelease', data[0]['name'], 720
-        $release.html data[0]['name']
+      lscache.set 'latestRelease', data[0]['name'], 720
+      $release.html tagIconHTML + data[0]['name']
     .then null, (err) ->
       $release.html 'available on <a href="https://www.github.com/centresource/preseason/tags">Github</a>'
 

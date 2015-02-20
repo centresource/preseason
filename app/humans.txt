@@ -4,11 +4,10 @@
 # TEAM
 
   Brandon Valentine -- Developer --  @bvalentine615
-  Chip Hayner -- Developer --  @chayner
   Desmond Cain -- Developer --  @desmond_cain
-  Jeremy Holland -- Developer --  @awebneck
   Max Beizer-- Developer --  @maxbeizer
   Rian Rainey -- Developer --  @rianrainey
+  Zach Keller -- Designer & Developer -- @zkellerdevelops
 
 # PAST TEAM MEMEBERS:
 
@@ -16,6 +15,8 @@
   Cade Truitt -- Developer --  @cadetruitt
   David Calhoun -- Designer & Developer --  @david_calhoun
   Travis Roberts -- Developer --  @travisroberts
+  Chip Hayner -- Developer --  @chayner
+  Jeremy Holland -- Developer --  @awebneck
 
 # THANKS
 

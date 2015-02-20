@@ -22,34 +22,108 @@
  * ---------------------------------------------------------------------------
  */
 
-.wrap {
-  @include outer-container;
-}
-
-.wrap-skinny {
+ p, pre {
   margin: 0 auto;
-  max-width: em(600);
-}
+  max-width: 38rem;
+ }
 
-.nav-primary {
-  padding: 1em;
-  text-align: center;
+.header-primary {}
 
-  @include media($medium-screen) {
-    text-align: right;
-  }
-}
+.nav-primary {}
 
 .content-primary {}
 
+section {
+  padding: 0 1.5em;
+}
+
 .footer-primary {
-  background: $blue-dark;
+  background: #942829;
   color: #989DA4;
   padding: 3em 1em;
   text-align: center;
+}
 
-  .logo-cs-labs {
-    display: block;
-    margin: 0 auto;
-  }
+#welcome {
+  background-image: url(../images/pattern.png);
+  background-repeat: repeat;
+}
+
+.welcome {
+  color: #bdc3c7;
+  display: table;
+  min-height: 20em;
+  padding: 1em 1em 5em;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.logo-cs-labs {
+  background: url(../images/logo-cs-labs.png) no-repeat 0 0;
+  display: inline-block;
+  height: 39px;
+  width: 207px;
+  color: transparent;
+  font: 0/0 a;
+  text-shadow: none;
+  -webkit-transition: opacity .2s linear;
+  -moz-transition: opacity .2s linear;
+  transition: opacity .2s linear;
+}
+
+.footer-primary .logo-cs-labs {
+  display: block;
+  margin: 0 auto;
+}
+
+.mega {
+  color: #ed4444;
+  font-size: 3.25em;
+}
+
+.minor {
+  font-size: 1.75em;
+}
+
+.instructions {
+  margin: 0 auto;
+  max-width: 37.5em;
+  padding-bottom: 3em;
+}
+
+.instructions p {
+  padding-bottom: .75em;
+}
+
+pre {
+  background: #fff;
+  border: 1px solid #ddd;
+  // margin-bottom: 2em;
+  padding: 1em 0 0 0;
+  overflow: auto;
+}
+
+code[class*=language-], pre[class*=language-] {
+  color: #000;
+  text-shadow: 0 1px #fff;
+  font-family: Consolas,Monaco,'Andale Mono',monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  float: left;
+  padding: 0 0 0 1em;
+}
+
+.bullets {
+  list-style-type: disc;
 }

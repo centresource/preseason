@@ -7,32 +7,35 @@ body {
   line-height: $unitless-line-height;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: $dark-gray;
+h1, h2, h3, h5 {
   font-family: $header-font-family;
   line-height: $header-line-height;
-  margin: 0 0 0.67em;
+  margin: 0;
   text-rendering: optimizeLegibility; // Fix the character spacing for headings
 }
 
 h1 {
-  color: $orange;
-  font-family: $sans-serif-alt;
-  font-weight: 400;
   font-size: $base-font-size * 2.25; // 16 * 2.25 = 36px
 }
 
 h2 {
-  font-size: $base-font-size * 2; // 16 * 2 = 32px
+  font-size: 2em;
+  color: $light-red;
+  text-align: center;
+  padding: .5em 0 1.5em 0;
 }
 
 h3 {
-  font-size: $base-font-size * 1.5; // 16 * 1.5 = 24px
+  font-size: $base-font-size * 1.75; // 16 * 1.75 = 28px
 }
 
 h4 {
-  font-size: $base-font-size * 1.125; // 16 * 1.125 = 18px
-  font-weight: 400;
+  font-family: $sans-serif;
+  font-size: 1.125em;
+  font-weight: 300;
+  padding-bottom: 0;
+  margin-bottom: .25em;
+  margin-top: 0;
 }
 
 h5 {
@@ -40,22 +43,27 @@ h5 {
 }
 
 h6 {
-  font-size: $base-font-size;
+  font-family: $header-font-family;
+  font-size: 1.15em;
+  margin: 1em;
+  color: $light-red;
 }
 
-p,
-pre {
-  margin: 0 auto 2em;
-  max-width: 38rem;
+p {
+  margin: 0 0 ($base-line-height * .5);
+  font-family: $sans-serif;
+  font-size: 1em;
 }
+
 
 a {
+  font-family: $sans-serif;
   @include transition(color 0.1s linear);
-  color: $base-link-color;
+  color: $light-red;
   text-decoration: none;
 
   &:hover {
-    color: $hover-link-color;
+    color: #94282a;
   }
 
   &:active, &:focus {
@@ -93,37 +101,8 @@ cite {
   }
 }
 
-code {
-  color: $base-font-color;
-  background: white;
-  border: 1px solid $base-border-color;
-  font-weight: 400;
-  padding: em(3);
-}
-
-pre {
-  background: white;
-  border: 1px solid $base-border-color;
-  margin-bottom: 2em;
-  padding: em(16);
-  overflow: auto;
-
-  code {
-    border: none;
-    padding: 0;
-  }
-}
-
-@include selection {
-  background: lighten($orange, 30);
-  color: darken($orange, 20);
-}
-
-// Misc
-.mega {
-  font-size: em(52);
-}
-
-.no-snippet {
-  margin-bottom: em(32);
+.code-inline {
+  color: #000;
+  font-family: $monospace;
+  text-shadow: 0 1px #fff;
 }

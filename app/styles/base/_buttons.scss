@@ -8,3 +8,28 @@ input[type="submit"] {
   vertical-align: middle;
   white-space: nowrap;
 }
+
+.btn-round {
+  background: #ecf0f1;
+  border-radius: 50%;
+  color: #bdc3c7;
+  display: inline-block;
+  line-height: 1;
+  padding: 1em;
+  -webkit-transition-property: background,color;
+  -moz-transition-property: background,color;
+  transition-property: background,color;
+  -webkit-transition-duration: .2s;
+  -moz-transition-duration: .2s;
+  transition-duration: .2s;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  transition-timing-function: linear;
+}
+
+.welcome .btn-round {
+  bottom: 4.5em;
+  left: 50%;
+  margin-left: -1.5em;
+  position: absolute;
+}

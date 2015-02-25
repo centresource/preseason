@@ -58,11 +58,11 @@ section {
 
 .logo-cs-labs {
   background: url(../images/logo-cs-labs.png) no-repeat 0 0;
+  color: transparent;
   display: inline-block;
+  font: 0/0 a;
   height: 39px;
   width: 207px;
-  color: transparent;
-  font: 0/0 a;
   text-shadow: none;
   -webkit-transition: opacity .2s linear;
   -moz-transition: opacity .2s linear;
@@ -93,32 +93,27 @@ section {
   padding-bottom: .75em;
 }
 
-pre {
-  background: #fff;
-  border: 1px solid #ddd;
-  // margin-bottom: 2em;
-  padding: 1em 0 0 0;
-  overflow: auto;
-}
-
 code[class*=language-], pre[class*=language-] {
+  border: 1px solid #ccc;
   color: #000;
-  text-shadow: 0 1px #fff;
-  font-family: Consolas,Monaco,'Andale Mono',monospace;
   direction: ltr;
+  float: left;
+  font-family: $monospace;
+  hyphens: none;
+  margin-bottom: 2em;
+  padding: 1em;
+  tab-size: 4;
+  text-shadow: 0 1px #fff;
   text-align: left;
+  width: 100%;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
   -moz-tab-size: 4;
   -o-tab-size: 4;
-  tab-size: 4;
   -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
-  hyphens: none;
-  float: left;
-  padding: 0 0 0 1em;
 }
 
 .bullets {

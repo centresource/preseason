@@ -56,6 +56,7 @@ class Preseason::Recipe::Playbook < Preseason::Recipe
 
   def integrate_playbook
     mirror_file 'app/views/layouts/application.html.erb'
+    gsub_file 'app/views/layouts/application.html.erb', /Preseason by Centresource/, app_name
   end
 
   def remove_unwanted_files

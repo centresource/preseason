@@ -22,7 +22,8 @@ class Preseason
       :factory        => Preseason::Config::Factory.new,
       :authentication => Preseason::Config::Authentication.new,
       :ie8            => Preseason::Config::IE8.new,
-      :heroku         => Preseason::Config::Heroku.new
+      :heroku         => Preseason::Config::Heroku.new,
+      :ruby_manager   => Preseason::Config::RubyManager.new
     )
   end
 
@@ -39,6 +40,7 @@ class Preseason
     config.authentication.ask_user
     config.heroku.ask_user if config.database.postgres?
     config.ie8.ask_user
+    config.ruby_manager.ask_user
   end
 
   def prepare_recipes
@@ -53,7 +55,7 @@ class Preseason
 
   def recipes
     @recipes ||= %w(
-      Rvm
+      RubyManager
       Gemfile
       Gitignore
       Database

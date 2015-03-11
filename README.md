@@ -54,6 +54,8 @@ If you need to write a template that executes ERB in the context of the running 
 + sets config.autoload_paths += %W(\#{config.root}/lib)
 + sets up a template for using whenever for cronjobs (for non-Heroku apps)
 + installs rspec
+  * You will see a message about spring stopping. This is to allow the
+    `rspec:install` generator to run.
 + installs and sets up bourbon and neat
 + creates a template for your whiskey_disk deploy in config/deploy.yml (for non-Heroku apps)
 + creates Procfile for foreman
@@ -62,7 +64,7 @@ If you need to write a template that executes ERB in the context of the running 
 + removes the test unit directory, the smoke test page, and the Rails logo.
 + migrates the db and recreates the test db from the DEV's schema
 + initializes a git repository, makes an "initial commit", and checks out a 'develop' branch
-+ setup Heroku
++ sets up Heroku (optionally)
 
 #### Preseason offers use of the following technologies:
 
@@ -93,12 +95,6 @@ If you need to write a template that executes ERB in the context of the running 
 ### Who
 
 Preseason is a project by the development team at the [Centresource Interactive Agency](http://www.centresource.com) in Nashville, TN. The main push for this project is from [Cade Truitt](https://github.com/cade), [Travis Roberts](https://github.com/travisr), [Jeremy Holland](https://github.com/awebneck), [Adam Scott](https://github.com/ascot21), [Rian Rainey](https://github.com/rianrainey), and [Max Beizer](https://github.com/maxbeizer)
-
-### ToDos
-* integration spec setup?
-* add active admin precompile asset list to production.rb
-* add logic to setup activeadmin for authlogic and allow choice between
-  devise and authlogic rather than y/n for authlogic
 
 ## License
 Preseason is Copyright © 2015 Centresource. It is free software, and may be redistributed under the terms specified in the [LICENSE](https://github.com/centresource/preseason/blob/master/LICENSE) file.

@@ -1,4 +1,4 @@
-require "preseason/version"
+require 'preseason/version'
 require 'ostruct'
 require_relative 'preseason/generator_context'
 require_relative 'preseason/colorize'
@@ -22,7 +22,8 @@ class Preseason
       :factory        => Preseason::Config::Factory.new,
       :authentication => Preseason::Config::Authentication.new,
       :ie8            => Preseason::Config::IE8.new,
-      :heroku         => Preseason::Config::Heroku.new
+      :heroku         => Preseason::Config::Heroku.new,
+      :whiskey_disk   => Preseason::Config::WhiskeyDisk.new
     )
   end
 
@@ -38,6 +39,7 @@ class Preseason
     config.factory.ask_user
     config.authentication.ask_user
     config.heroku.ask_user if config.database.postgres?
+    config.whiskey_disk.ask_user
     config.ie8.ask_user
   end
 

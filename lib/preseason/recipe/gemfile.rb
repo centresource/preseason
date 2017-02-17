@@ -100,7 +100,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gem 'pry-rails'
       gem 'pry-nav'
       gem 'awesome_print'
-      gem 'quiet_assets'
       gem 'rspec-rails'
     end
   end

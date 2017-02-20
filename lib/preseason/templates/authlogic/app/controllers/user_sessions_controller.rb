@@ -1,4 +1,4 @@
-class UserSessionController < ApplicationController
+class UserSessionsController < ApplicationController
   before_filter :find_user_by_perishable_token, :only => [:acquire_password, :reset_password]
 
   def new

@@ -12,6 +12,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_development_test_gems
     add_test_gems
     add_factory_gem
+    add_bitters_gem
     add_active_admin_gem
     add_authentication_gem
     add_modernizr_gem
@@ -47,8 +48,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       %w(
         whiskey_disk
         jquery-rails
-        bourbon
-        neat
       ).map { |gem_name| "gem '#{gem_name}'" }.join("\n") << "\n"
     end
   end
@@ -120,6 +119,14 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     if config.factory.factory_girl?
       insert_into_file 'Gemfile', :after => "group :development, :test do\n" do
         "  gem 'factory_girl_rails'\n"
+      end
+    end
+  end
+
+  def add_bitters_gem
+    if config.bitters.bitters?
+      insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
+        "gem 'bitters'\n"
       end
     end
   end

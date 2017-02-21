@@ -100,14 +100,13 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gem 'pry-rails'
       gem 'pry-nav'
       gem 'awesome_print'
-      gem 'quiet_assets'
       gem 'rspec-rails'
     end
   end
 
   def add_test_gems
     gem_group :test do
-      gem 'spork-rails'
+      gem 'spork-rails', github: 'sporkrb/spork-rails'
       gem 'database_cleaner'
       gem 'shoulda-matchers'
       gem 'capybara-webkit'

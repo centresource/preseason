@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'preseason/version'
 
 Gem::Specification.new do |spec|
-  spec.required_ruby_version = '>= 2.0.0'
+  spec.required_ruby_version = '>= 2.4.0'
   spec.name          = "preseason"
   spec.version       = Preseason::VERSION
   spec.authors       = ["Centresource Interactive Agency"]
@@ -19,9 +19,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'rails', '~> 4.0'
+  spec.add_dependency 'rails', '5.0.1'
 
-  spec.add_development_dependency 'pry', '~> 0'
-  spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'rake', '~> 0'
+  spec.add_development_dependency 'pry', '~> 0.10'
+  spec.add_development_dependency 'bundler', '~> 1.14'
+  spec.add_development_dependency 'rake', '~> 0.9'
 end

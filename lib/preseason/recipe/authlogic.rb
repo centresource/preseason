@@ -32,8 +32,8 @@ class Preseason::Recipe::Authlogic < Preseason::Recipe
   end
 
   def setup_controllers
-    mirror_file 'app/controllers/user_session_controller.rb'
-    insert 'app/controllers/application_controller.rb', :after => 'protect_from_forgery'
+    mirror_file 'app/controllers/user_sessions_controller.rb'
+    insert 'app/controllers/application_controller.rb', :after => 'protect_from_forgery with: :exception'
   end
 
   def setup_views

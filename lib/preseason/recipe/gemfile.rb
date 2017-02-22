@@ -89,7 +89,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
       gem 'foreman'
       gem 'guard-bundler'
       gem 'guard-rspec'
-      gem 'guard-spork'
       gem 'rb-fsevent', :require => false
     end
   end
@@ -105,7 +104,6 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def add_test_gems
     gem_group :test do
-      gem 'spork-rails', github: 'sporkrb/spork-rails'
       gem 'database_cleaner'
       gem 'shoulda-matchers'
       gem 'capybara-webkit'

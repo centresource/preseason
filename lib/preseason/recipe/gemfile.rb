@@ -12,7 +12,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_development_test_gems
     add_test_gems
     add_factory_gem
-    add_bitters_gem
+    add_bourbon_gems
     add_active_admin_gem
     add_authentication_gem
     add_modernizr_gem

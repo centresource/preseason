@@ -7,7 +7,7 @@ class Preseason::Recipe::Bourbon < Preseason::Recipe
 
   def configure_bourbon
     run 'mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss'
-    gsub_file 'app/assets/stylesheets/application.scss', '*= require_tree .', ''
+    gsub_file 'app/assets/stylesheets/application.scss', '*= require_tree .', '*'
     append_to_file 'app/assets/stylesheets/application.scss', "@import 'bourbon';\n"
   end
 

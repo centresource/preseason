@@ -20,6 +20,7 @@ class Preseason
     @config = OpenStruct.new(
       :database       => Preseason::Config::Database.new,
       :factory        => Preseason::Config::Factory.new,
+      :bourbon        => Preseason::Config::Bourbon.new,
       :authentication => Preseason::Config::Authentication.new,
       :ie8            => Preseason::Config::IE8.new,
       :heroku         => Preseason::Config::Heroku.new,
@@ -37,6 +38,7 @@ class Preseason
   def ask_for_config
     config.database.ask_user
     config.factory.ask_user
+    config.bourbon.ask_user
     config.authentication.ask_user
     config.heroku.ask_user if config.database.postgres?
     config.whiskey_disk.ask_user
@@ -73,9 +75,9 @@ class Preseason
       CustomErrorPages
       Guard
       SporkRspec
-      Playbook
       Initializer
       IE8
+      Bourbon
       Routes
       Git
       Heroku

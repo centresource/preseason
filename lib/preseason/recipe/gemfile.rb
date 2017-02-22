@@ -123,10 +123,12 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     end
   end
 
-  def add_bitters_gem
-    if config.bitters.bitters?
+  def add_bourbon_gems
+    if config.bourbon.bourbon?
       insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
-        "gem 'bitters'\n"
+        "gem 'bourbon', '~> 4.2', '>= 4.2.6'\n"
+        "gem 'neat', '~> 2.0.0'\n"
+        "gem 'bitters', '~> 1.5.0'\n"
       end
     end
   end

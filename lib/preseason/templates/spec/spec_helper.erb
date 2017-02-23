@@ -1,9 +1,71 @@
 require 'rubygems'
 
-if(ENV["SIMPLECOV"])
-  require 'simplecov'
-  SimpleCov.start 'rails' do
-    add_filter "/spec/"
+prefork = lambda {
+  ENV["RAILS_ENV"] = 'test'
+  <% if config.authentication.devise? %>
+  require 'rails/application'
+  <!-- Spork.trap_method(Rails::Application::RoutesReloader, :reload!) -->
+  <% end %>
+
+  require File.expand_path("../../config/environment", __FILE__)
+  require 'rspec/rails'
+
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+  RSpec.configure do |config|
+    Capybara.javascript_driver = :webkit
+    config.mock_with :rspec
+    config.fixture_path = "\#{::Rails.root}/spec/factories"
+    config.use_transactional_fixtures = false
+
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with :truncation
+    end
+
+    config.before(:each) do
+      if example.metadata[:use_truncation] || example.metadata[:js]
+        DatabaseCleaner.strategy = :truncation
+      else
+        DatabaseCleaner.start
+      end
+    end
+
+    config.after(:each) do
+      DatabaseCleaner.clean
+      if example.metadata[:use_truncation] || example.metadata[:js]
+        DatabaseCleaner.strategy = :transaction
+      end
+    end
   end
-  puts "Running coverage tool\n"
+}
+
+each_run = lambda {
+  <%= "FactoryGirl.reload" if config.factory.factory_girl? %>
+}
+
+if defined?(Zeus)
+  prefork.call
+  $each_run = each_run
+  class << Zeus.plan
+    def after_fork_with_test
+      after_fork_without_test
+      $each_run.call
+    end
+    alias_method_chain :after_fork, :test
+  end
+else
+  prefork.call
+  each_run.call
+end
+
+# this part is optional, but it gets SimpleCov working when running
+# specs without zeus (as long as zeus is not running)
+def zeus_running?
+  File.exists? '.zeus.sock'
+end
+
+if !zeus_running?
+  require 'simplecov'
+  SimpleCov.start
 end

@@ -90,7 +90,8 @@ If you need to write a template that executes ERB in the context of the running 
 +  [simplecov](https://github.com/colszowka/simplecov)
 +  [bourbon](http://bourbon.io/)
 +  [neat](http://neat.bourbon.io/)
-+  [bitters](http://bitters.bourbon.io)
++  [slim](http://slim-lang.com/)
++  [haml](http://haml.info/)
 
 ### Who
 

@@ -7,7 +7,7 @@ class Preseason::Recipe::Bourbon < Preseason::Recipe
   def configure_bourbon
     remove_file 'app/assets/stylesheets/application.css'
     create_file 'app/assets/stylesheets/application.scss'
-    insert_into_file 'app/assets/stylesheets/application.scss', "@import 'bourbon';\n"
+    append_to_file 'app/assets/stylesheets/application.scss', "@import 'bourbon';\n"
   end
 
   def add_neat

@@ -21,6 +21,7 @@ class Preseason
       :database       => Preseason::Config::Database.new,
       :factory        => Preseason::Config::Factory.new,
       :bourbon        => Preseason::Config::Bourbon.new,
+      :bitters        => Preseason::Config::Bitters.new,
       :templating     => Preseason::Config::Templating.new,
       :authentication => Preseason::Config::Authentication.new,
       :ie8            => Preseason::Config::IE8.new,
@@ -40,6 +41,7 @@ class Preseason
     config.database.ask_user
     config.factory.ask_user
     config.bourbon.ask_user
+    config.bitters.ask_user
     config.templating.ask_user
     config.authentication.ask_user
     config.heroku.ask_user if config.database.postgres?
@@ -80,6 +82,7 @@ class Preseason
       Initializer
       IE8
       Bourbon
+      Bitters
       Routes
       Git
       Heroku

@@ -13,6 +13,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     add_test_gems
     add_factory_gem
     add_bourbon_gems
+    add_templating_gem
     add_active_admin_gem
     add_authentication_gem
     add_modernizr_gem
@@ -125,6 +126,18 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
     if config.bourbon.bourbon?
       insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
         "gem 'bourbon', '~> 4.2', '>= 4.2.6'\ngem 'neat', '~> 2.0.0'\n"
+      end
+    end
+  end
+
+  def add_templating_gem
+    if config.templating.slim?
+      insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
+        "gem 'slim-rails'\n"
+      end
+    elsif config.templating.haml?
+      insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
+        "gem 'haml-rails'\n"
       end
     end
   end

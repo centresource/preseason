@@ -6,7 +6,7 @@ class Preseason
       attr_accessor :library
 
       def ask_user
-        if yes? "Would you like to use Bourbon, Neat, and Bitters? [y/n]"
+        if yes? "Would you like to use Bourbon and Neat? [y/n]"
           self.library = :bourbon
         end
       end

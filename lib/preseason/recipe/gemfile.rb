@@ -106,6 +106,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def add_test_gems
     gem_group :test do
+      gem 'zeus'
       gem 'database_cleaner'
       gem 'shoulda-matchers'
       gem 'capybara-webkit'

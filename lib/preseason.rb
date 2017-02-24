@@ -78,7 +78,7 @@ class Preseason
       ActiveAdmin
       CustomErrorPages
       Guard
-      SporkRspec
+      ZeusRspec
       Initializer
       IE8
       Bourbon

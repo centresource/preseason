@@ -73,7 +73,6 @@ class Preseason
       Rspec
       WhiskeyDisk
       Foreman
-      Authlogic
       Devise
       ActiveAdmin
       CustomErrorPages

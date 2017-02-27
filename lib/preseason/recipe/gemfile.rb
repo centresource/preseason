@@ -161,11 +161,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
   end
 
   def add_authentication_gem
-    if config.authentication.authlogic?
-      insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
-        "gem 'authlogic'\n"
-      end
-    elsif config.authentication.devise?
+    if config.authentication.devise?
       insert_into_file 'Gemfile', :after => "gem 'jquery-rails'\n" do
         "gem 'devise'\n"
       end

@@ -70,7 +70,7 @@ If you need to write a template that executes ERB in the context of the running 
 
 +  Either postgresql, mysql2, or sqlite3
 +  [factory_girl](https://github.com/thoughtbot/factory_girl)
-+  [authlogic](https://github.com/binarylogic/authlogic), [devise](https://github.com/plataformatec/devise), or [activeadmin](http://www.activeadmin.info/) (with devise)
++  [devise](https://github.com/plataformatec/devise), or [activeadmin](http://www.activeadmin.info/) (with devise)
 +  [rvm](https://rvm.io/)
 +  [whiskey_disk](https://github.com/flogic/whiskey_disk) (for embarrassingly fast deployments)
 +  [lograge](https://github.com/roidrage/lograge)

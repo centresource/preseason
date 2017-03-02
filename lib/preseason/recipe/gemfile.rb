@@ -118,7 +118,7 @@ class Preseason::Recipe::Gemfile < Preseason::Recipe
 
   def add_factory_gem
     if config.factory.factory_girl?
-      insert_into_file 'Gemfile', :after => "group :development, :test do\n" do
+      insert_into_file 'Gemfile', :after => "gem 'rspec-rails'\n" do
         "  gem 'factory_girl_rails'\n"
       end
     end

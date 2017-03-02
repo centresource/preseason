@@ -8,7 +8,7 @@ ways to DRY things up. This project is intended to serve as a launching
 pad for new Rails applications. Perhaps most importantly, it is **NOT** supposed to cover everything that every Rails app will ever need, but to be a good starting place.
 
 ### How
-N.B. This project assumes you have a development environment setup that is capable of installing Rails projects. If not, start with the [Rails Guides](http://guides.rubyonrails.org/getting_started.html "Rails Guides"). You must also have the rvm gem installed. It also assumes that you are using SSH if you plan to make your project a Github repo.
+N.B. This project assumes you have a development environment setup that is capable of installing Rails projects. If not, start with the [Rails Guides](http://guides.rubyonrails.org/getting_started.html "Rails Guides"). You must also have the rvm gem installed. It also assumes that you are using SSH if you plan to make your project a Github repo. This project will use your currently installed version of Rails. While we have had good experience with recent prior versions, we recommend using Rails 5+.
 
 0. Install the `rvm` gem if you don't already have it installed
 
@@ -56,7 +56,7 @@ If you need to write a template that executes ERB in the context of the running 
 + installs rspec
   * You will see a message about spring stopping. This is to allow the
     `rspec:install` generator to run.
-+ installs and sets up bourbon and neat
++ installs and sets up bourbon, neat and bitters (optionally)
 + creates a template for your whiskey_disk deploy in config/deploy.yml (for non-Heroku apps)
 + creates Procfile for foreman
 + starts guard
@@ -90,6 +90,7 @@ If you need to write a template that executes ERB in the context of the running 
 +  [simplecov](https://github.com/colszowka/simplecov)
 +  [bourbon](http://bourbon.io/)
 +  [neat](http://neat.bourbon.io/)
++  [bitters](http://bitters.bourbon.io/)
 +  [slim](http://slim-lang.com/)
 +  [haml](http://haml.info/)
 
